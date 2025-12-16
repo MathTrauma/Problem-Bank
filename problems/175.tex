@@ -1,26 +1,26 @@
 % Problem ID: 175
 % Original file: 웹앱백업_claude/main.tex
 
-\numbering 평행사변형 $ABCD$의 한 변 $CD$위의 임의의 한 점을 $F$라 하자. 
+
+\numbering 평행사변형 $ABCD$ 의 한 변 $CD$ 위의 임의의 한 점을 $F$ 라 하자. 
 \[ \overline{AE}^2 = \overline{EF} \cdot \overline{EG} \] 
 을 보여라. \\
-
 
 \begin{center}
 \begin{tikzpicture}[scale=1.2,thick,help lines/.style={thin,draw=black!50}]
     \tkzDefPoint(0,0){A}        \tkzLabelPoint[below left](A){$A$}       
-    \tkzDefPoint(3,0){B}        \tkzLabelPoint[below right](B){$B$}  
-    \tkzDefPoint(4,2.5){C}      \tkzLabelPoint[above right](C){$C$}  
-    \tkzDefPoint(1,2.5){D}      \tkzLabelPoint[above left](D){$D$}  
+    \tkzDefPoint(3,0){B}        \tkzLabelPoint[below right](B){$ B$}  
+    \tkzDefPoint(4,2.5){C}      \tkzLabelPoint[above right](C){$ C$}  
+    \tkzDefPoint(1,2.5){D}      \tkzLabelPoint[above left](D){$ D$}  
 
     \tkzDefBarycentricPoint(C=2,D=1)   \tkzGetPoint{F} 
-    \tkzLabelPoint[above](F){$F$} 
+    \tkzLabelPoint[above](F){$ F$} 
 
     \tkzInterLL(B,D)(A,F)       \tkzGetPoint{E}     
-    \tkzLabelPoint[below, yshift=-0.1cm](E){$E$}
+    \tkzLabelPoint[below, yshift=-0.1cm](E){$ E$}
 
     \tkzInterLL(B,C)(A,F)       \tkzGetPoint{G}
-    \tkzLabelPoint[right, yshift=-0.1cm](G){$G$}
+    \tkzLabelPoint[right, yshift=-0.1cm](G){$ G$}
     
     \tkzDrawPoints(A,B,C,D,E,F,G)
     \tkzDrawSegments[thick](A,G A,B B,D B,G C,D D,A)

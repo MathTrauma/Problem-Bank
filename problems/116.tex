@@ -1,17 +1,19 @@
 % Problem ID: 116
 % Answer: 30
 % Original file: Training_1/1_Angle/0_exterior.tex
-
 %
-\numbering $\overline{AC}=35, \overline{BC}=7$인 삼각형 $ABC$가 있다. 
-점 $D$는 선분 $AC$ 위에 있고 $\angle ABD=90^\circ$이다. 
-점 $E$ 또한 선분 $AC$위에 있고 선분 $BD$는 $\angle CBE$의 이등분선이다. 
-$\overline{BE}=5$일 때, $3\overline{CE}$의 값을 구하여라.\\
+        %\tkzInit[xmin=-1,xmax=12, ymin=-1,ymax=12]
+        %\tkzClip
+        %\tkzLabelPoint[above](A){$\ang$}
+
+
+\numbering $\overline{AC}=35, \overline{BC}=7$ 인 삼각형 $ABC$ 가 있다.
+점 $D$ 는 선분 $AC$ 위에 있고 $\angle ABD=90^\circ$ 이다.
+점 $E$ 또한 선분 $ AC$위에 있고 선분 $ BD$는 $\angle CBE$ 의 이등분선이다. 
+$\overline{BE}=5$ 일 때, $3\overline{CE}$ 의 값을 구하여라.\\
 
 \begin{center}
     \begin{tikzpicture}[scale=1.6]
-        %\tkzInit[xmin=-1,xmax=12, ymin=-1,ymax=12]
-        %\tkzClip
         \tkzDefPoints{-1/0/C, 6/0/A, 1/0/E, 3/0/c, 0/0/origin}
 
         \tkzDefCircle[R](E,1)   \tkzGetPoint{x}
@@ -24,10 +26,10 @@ $\overline{BE}=5$일 때, $3\overline{CE}$의 값을 구하여라.\\
 
         \tkzDrawPoints(B, A, C, D, E)
         \tkzLabelPoint[above](B){$B$}
-        \tkzLabelPoint[right](A){$A$}
-        \tkzLabelPoint[left](C){$C$}
-        \tkzLabelPoint[below](D){$D$}
-        \tkzLabelPoint[below](E){$E$}
+        \tkzLabelPoint[right](A){$ A$}
+        \tkzLabelPoint[left](C){$ C$}
+        \tkzLabelPoint[below](D){$ D$}
+        \tkzLabelPoint[below](E){$ E$}
 
         \tkzDrawSegments(A,B B,C C,A E,B D,B)
         \tkzMarkRightAngle[size=0.2](D,B,A)
@@ -35,6 +37,5 @@ $\overline{BE}=5$일 때, $3\overline{CE}$의 값을 구하여라.\\
 
         \tkzFindAngle(D,B,A)    \tkzGetAngle{ang}
         \tkzCalcLength(B,E)     \tkzGetLength{l}
-        %\tkzLabelPoint[above](A){$\ang$}
     \end{tikzpicture}
 \end{center}

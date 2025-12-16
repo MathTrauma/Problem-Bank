@@ -1,16 +1,17 @@
 % Problem ID: 113
 % Original file: Training_1/0_ParallelFrame/0_bisector_2.tex
 
-\numbering 한 변의 길이가 1인 정사각형 $ABCD$의 각 점에서 각 변을 $t:1-t$로 내분한 점들을 이었을 때, 
+
+\numbering 한 변의 길이가 1인 정사각형 $ABCD$ 의 각 점에서 각 변을 $t:1-t$ 로 내분한 점들을 이었을 때, 
 내부에 발생하는 정사각형의 넓이를 구하여라.\\
 \begin{center}
     \begin{tikzpicture}
         \tkzDefPoints{0/0/A, 4/0/B, 4/4/C, 0/4/D}
         \tkzDrawPoints(A,B,C,D)
         \tkzLabelPoint[below left](A){$A$}
-        \tkzLabelPoint[below right](B){$B$}
-        \tkzLabelPoint[above right](C){$C$}
-        \tkzLabelPoint[above left](D){$D$}
+        \tkzLabelPoint[below right](B){$ B$}
+        \tkzLabelPoint[above right](C){$ C$}
+        \tkzLabelPoint[above left](D){$ D$}
 
         \tkzDrawSegments[thick](A,B B,C C,D D,A)
 

@@ -1,5 +1,7 @@
 % Problem ID: 167
 % Original file: Training_1/Book1.tex
+        %\draw (O) node[above] {$O$} circle(1pt);
+
 
 \numbering 다음 그림을 이용하여 문제를 만들어 보라.
 \tikzmath {   
@@ -18,9 +20,9 @@
         \draw[name path=A--E] (A)--(E) ;
         \path[name path=B--C] (B)--(C) ;
         \path[name intersections={of=A--E and B--C, by=D}];
-        \draw (D) node[below left] {$D$} circle(1pt);
-        \draw ($(A)!(D)!(B)$) coordinate (G) node[left] {$G$} circle(1pt);
-        \draw ($(A)!(D)!(C)$) coordinate (H) node[left] {$H$} circle(1pt);
+        \draw (D) node[below left] {$ D$} circle(1pt);
+        \draw ($(A)!(D)!(B)$) coordinate (G) node[left] {$ G$} circle(1pt);
+        \draw ($(A)!(D)!(C)$) coordinate (H) node[left] {$ H$} circle(1pt);
 
         \draw[name path=G--P] (G) -- ($(G)!2.5!(D)$);
         \path[name path=A--P] (C) -- ($(A)!3!(C)$);
@@ -40,7 +42,7 @@
         \draw[name path=C--Y] (C) -- (Y);
 
         \path[name intersections={of=A--X and X--Y, by = X}];
-        \draw (X) node[below] {$X$} -- (B);
+        \draw (X) node[below] {$ X$} -- (B);
 
         \draw let \p1=($(X)!0.5!(Q)$), \p2=($(X)!0.5!(P)$), 
             \p3=($(\p1)!1!90:(Q)$), \p4=($(\p2)!1!-90:(P)$),	
@@ -49,17 +51,15 @@
 
         \node[name path=C_1, circle through=(X), draw=blue] at (O_1) {};
 
-        \draw (P) node[below right] {$P$} circle(1pt);
-        \draw (Q) node[below left] {$Q$} circle(1pt);
+        \draw (P) node[below right] {$ P$} circle(1pt);
+        \draw (Q) node[below left] {$ Q$} circle(1pt);
     \end{tikzpicture} 
 \end{center}
-
 
 \begin{center} 
     \begin{tikzpicture}[scale=0.6]
         \draw[semithick] (0,0) coordinate (O) circle(\R);
-        %\draw (O) node[above] {$O$} circle(1pt);
-        \tkzDrawPoint(O){$O$}
+        \tkzDrawPoint(O){$ O$}
 
         \foreach \i / \name / \pos in {\a/A/110, \b/B/210, \c/C/-30, \e/E/270}{
             \coordinate[label=\pos:$\name$] (\name) at (\i:\R);

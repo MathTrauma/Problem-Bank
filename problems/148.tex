@@ -1,62 +1,70 @@
 % Problem ID: 148
 % Source: 28회 KMO 중등부 2차 1번
 % Original file: Training_1/2_circle/1_concyclic.tex
+% 1 phase
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %\tkzDrawCircle[semithick, red, opacity=0.8](Z,W)
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            %\tkzDrawCircle[very thick, orange](tmp1,D)
 
-\numbering 삼각형 $ABC$의 내심을 $I$라 하고, 
-직선 $AI$가 변 $BC$와 만나는 점을 $D$라 하자. 
-삼각형 $ABD$의 내심 $E$와 $D$를 지나는 직선이 삼각형 $BCE$의 외접원과 만나는 점을 
-$P(\not=E)$라 하자. 
-또, 삼각형 $ACD$의 내심 $F$와 $D$를 지나는 직선이 삼각형 $BCF$의 외접원과 만나는 점을 
-$Q(\not=F)$라 하자. 변 $BC$의 중점이 삼각형 $DPQ$의 외접원 위에 있음을 보여라. \\
+
+\numbering 삼각형 $ABC$ 의 내심을 $I$ 라 하고, 
+직선 $AI$ 가 변 $BC$ 와 만나는 점을 $D$ 라 하자.
+삼각형 $ABD$ 의 내심 $E$ 와 $D$ 를 지나는 직선이 삼각형 $BCE$ 의 외접원과 만나는 점을 
+$P(\not=E)$ 라 하자.
+또, 삼각형 $ACD$ 의 내심 $F$ 와 $D$ 를 지나는 직선이 삼각형 $BCF$ 의 외접원과 만나는 점을 
+$Q(\not=F)$ 라 하자.
+변 $BC$ 의 중점이 삼각형 $DPQ$ 의 외접원 위에 있음을 보여라. \\
 \tikzmath {   
     \R = 3; \myRatio = 0.3; \opac = 0.7;
     \b=-150; \c=-30; \a=70;    
     \aa= \a-180; \bb=\b+180; \cc=\c+180;
 }
 
-% 1 phase
 \begin{figure}[H]
 	\begin{subfigure}{0.5\textwidth}
         \begin{center}
         \begin{tikzpicture}[scale=0.6]
             \tkzDefPoint(0,0){O}        %\tkzDrawPoint[label=right:$O$](O)
 
-            \tkzDefPoint(45:\R){A}      \tkzDrawPoint[label=above:$A$](A)   
-            \tkzDefPoint(-160:\R){B}    \tkzDrawPoint[label=left:$B$](B)
-            \tkzDefPoint(-20:\R){C}     \tkzDrawPoint[label= right:$C$](C)
+            \tkzDefPoint(45:\R){A}      \tkzDrawPoint[label=above:$ A$](A)   
+            \tkzDefPoint(-160:\R){B}    \tkzDrawPoint[label=left:$ B$](B)
+            \tkzDefPoint(-20:\R){C}     \tkzDrawPoint[label= right:$ C$](C)
             
             \tkzDrawPolygon[semithick](A,B,C)
 
             \tkzDefCircle[in](A,B,C)    \tkzGetPoint{I}
             \tkzInterLL(A,I)(B,C)       \tkzGetPoint{D}
             \tkzDrawPoint(D)
-            \tkzLabelPoint[below right, xshift=0.1cm](D){$D$}
+            \tkzLabelPoint[below right, xshift=0.1cm](D){$ D$}
             \tkzDrawSegment(A,D)
 
             \tkzDefCircle[in](A,B,D) \tkzGetPoint{E}
-            \tkzDrawPoint[label=above left:$E$](E)
+            \tkzDrawPoint[label=above left:$ E$](E)
             \tkzDefCircle[in](A,C,D) \tkzGetPoint{F}
-            \tkzDrawPoint[label=above right:$F$](F)
+            \tkzDrawPoint[label=above right:$ F$](F)
 
             \tkzLabelAngle[pos=0.5](E,D,B){$\times$}
             \tkzLabelAngle[pos=0.5](A,D,E){$\times$}
             \tkzLabelAngle[pos=0.5](F,D,A){$\circ$}
             \tkzLabelAngle[pos=0.5](C,D,F){$\circ$}
             
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \tkzDefCircle[circum](B,C,E) \tkzGetPoints{X}{Y}
             \tkzDrawCircle[thick, blue](X,Y)
             
             \tkzInterLC(E,D)(X,Y) \tkzGetFirstPoint{P}
-            \tkzDrawPoint[blue, label=right:$P$](P)
+            \tkzDrawPoint[blue, label=right:$ P$](P)
             \tkzDrawSegment(E,P)
             
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \tkzDefCircle[circum](B,C,F) \tkzGetPoints{Z}{W}
             \tkzDrawCircle[thick, red](Z,W)
             
             \tkzInterLC(F,D)(Z,W) \tkzGetSecondPoint{Q}
-            \tkzDrawPoint[red, label=left:$Q$](Q)
+            \tkzDrawPoint[red, label=left:$ Q$](Q)
             \tkzDrawSegment(F,Q)
             
             \tkzMarkRightAngle(Q,D,P)
@@ -67,10 +75,10 @@ $Q(\not=F)$라 하자. 변 $BC$의 중점이 삼각형 $DPQ$의 외접원 위에
     \begin{subfigure}{0.5\textwidth}
         \begin{center}
         \begin{tikzpicture}[scale=0.6]
-            \tkzDefPoint(0,0){O}        %\tkzDrawPoint[label=right:$O$](O)
-            \tkzDefPoint(45:\R){A}      \tkzDrawPoint[label=above:$A$](A)   
-            \tkzDefPoint(-160:\R){B}    \tkzDrawPoint[label=left:$B$](B)
-            \tkzDefPoint(-20:\R){C}     \tkzDrawPoint[label= right:$C$](C)
+            \tkzDefPoint(0,0){O}        %\tkzDrawPoint[label=right:$ O$](O)
+            \tkzDefPoint(45:\R){A}      \tkzDrawPoint[label=above:$ A$](A)   
+            \tkzDefPoint(-160:\R){B}    \tkzDrawPoint[label=left:$ B$](B)
+            \tkzDefPoint(-20:\R){C}     \tkzDrawPoint[label= right:$ C$](C)
             
             \tkzDrawCircle[semithick](O,A)
             \tkzDrawPolygon(A,B,C)
@@ -80,37 +88,33 @@ $Q(\not=F)$라 하자. 변 $BC$의 중점이 삼각형 $DPQ$의 외접원 위에
             \tkzDrawPoint(D)
 
             \tkzDefCircle[in](A,B,D) \tkzGetPoint{E}
-            \tkzDrawPoint[label=above left:$E$](E)
+            \tkzDrawPoint[label=above left:$ E$](E)
             \tkzDefCircle[in](A,C,D) \tkzGetPoint{F}
-            \tkzDrawPoint[label=above right:$F$](F)
+            \tkzDrawPoint[label=above right:$ F$](F)
 
             \tkzLabelAngle[pos=0.5](E,D,B){$\times$}
             \tkzLabelAngle[pos=0.5](A,D,E){$\times$}
 
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \tkzDefCircle[circum](B,C,E) \tkzGetPoints{X}{Y}
             \tkzDrawCircle[semithick, blue](X,Y)
 
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \tkzInterLC(E,D)(X,Y) \tkzGetFirstPoint{P}
-            \tkzDrawPoint[label=right:$P$](P)
+            \tkzDrawPoint[label=right:$ P$](P)
             \tkzDrawSegment(E,P)
 
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \tkzDefCircle[circum](B,C,F) \tkzGetPoints{Z}{W}
-            %\tkzDrawCircle[semithick, red, opacity=0.8](Z,W)
 
             \tkzInterLC(F,D)(Z,W) \tkzGetSecondPoint{Q}
-            \tkzDrawPoint[label=left:$Q$](Q)
+            \tkzDrawPoint[label=left:$ Q$](Q)
             \tkzDrawSegment(F,Q)
 
             \tkzDefCircle[ex](C,A,B) \tkzGetPoint{Ia}
-            \tkzDrawPoint[label=below:$I_a$](Ia)
-            \tkzDrawPoint[label=above left:$I$](I)
+            \tkzDrawPoint[label=below:$ I_a$](Ia)
+            \tkzDrawPoint[label=above left:$ I$](I)
             \tkzDrawSegment(A,Ia)
 
             \tkzDefMidPoint(I,Ia)       \tkzGetPoint{M}
-            \tkzDrawPoint[label=above left:$M$](M)
+            \tkzDrawPoint[label=above left:$ M$](M)
 
             \tkzDrawSegments[very thick, red](B,I I,C)
             \tkzDrawSegments(C,Ia)
@@ -118,24 +122,23 @@ $Q(\not=F)$라 하자. 변 $BC$의 중점이 삼각형 $DPQ$의 외접원 위에
 
             \tkzDrawSegments(C,P Ia,P) \tkzMarkSegments[mark=|||, size=2pt](C,P Ia,P)
 
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \tkzDefCircle[circum](D,C,P) \tkzGetPoint{tmp1}
-            %\tkzDrawCircle[very thick, orange](tmp1,D)
 
             \tkzDefCircle[circum](D,B,Q) \tkzGetPoint{tmp2}
 
         \end{tikzpicture} 
-        \subcaption{$\angle IBC = \angle EBC = \angle CPD$와 같은 것은?}
+        \subcaption{$\angle IBC = \angle EBC = \angle CPD$ 와 같은 것은?}
     \end{center}
     \end{subfigure}%
 
 \end{figure}
 
-왼쪽 그림은 설명에 등장하는 요소들을 최소한으로 그린 것이다. 
+왼쪽 그림은 설명에 등장하는 요소들을 최소한으로 그린 것이다.
 문제를 해결하기 위해 찾아야 할 것은 무엇일까? \\
 
-$ABD$, $ACD$는 최초의 $ABC$와 공유하는 요소를 가질 것이다.
-오른쪽 그림에 $ABC$와 $ABD$, $ABC$와 $ACD$의 \fbox{공통 이등분선} 
-$IB$와 $IC$를 표시하였다. 이로부터 파란색 원위 원주각을 $ABC$의 방심과 
-관련지을 수 있다. $\angle CPD = \angle II_aC = \angle DI_aC$이므로
-$D,C,P,I_a$가 공원점임을 알게 된다.
+$ABD$, $ ACD$는 최초의 $ ABC$와 공유하는 요소를 가질 것이다.
+오른쪽 그림에 $ ABC$와 $ ABD$, $ ABC$와 $ ACD$의 \fbox{공통 이등분선} 
+$ IB$와 $ IC$를 표시하였다.
+이로부터 파란색 원위 원주각을 $ ABC$의 방심과 
+관련지을 수 있다. $\angle CPD = \angle II_aC = \angle DI_aC$ 이므로
+$D,C,P,I_a$ 가 공원점임을 알게 된다.

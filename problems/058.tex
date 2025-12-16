@@ -1,36 +1,35 @@
 % Problem ID: 058
 % Original file: Training_1/contents/area.tex
+%%%%%%%%%%%%%%%%
 
-\numbering 볼록 사각형 $ABCD$에서 대각선 $\overline{AC}, \overline{BD}$의 중점을 각각 $M,N$이라 하고, \\ 
-$M,N$을 지나고 $\overline{BD}, \overline{AC}$에 평행한 두 직선의 교점을 $O$라 할 때, 
-$O$를 각 변의 중점과 연결하면 $ABDC$의 넓이는 이들 네 선분에 의해 4등분 됨을 보여라.\\
+
+\numbering 볼록 사각형 $ABCD$ 에서 대각선 $\overline{AC}, \overline{BD}$ 의 중점을 각각 $M,N$ 이라 하고, \\ 
+$M,N$ 을 지나고 $\overline{BD}, \overline{AC}$ 에 평행한 두 직선의 교점을 $O$ 라 할 때, 
+$O$ 를 각 변의 중점과 연결하면 $ABDC$ 의 넓이는 이들 네 선분에 의해 4등분 됨을 보여라.\\
 \begin{center}
     \resizebox{6cm}{6cm}{%
         \begin{tikzpicture} 
             \draw[thick] (-2,-2) node[below left] {$A$} coordinate (A)
-                -- (3, -2) node[below right] {$B$} coordinate (B)
-                -- (1, 2) node[above right] {$C$} coordinate (C)
-                -- (-1.25, 1) node[above left] {$D$} coordinate (D) -- cycle  ;
+                -- (3, -2) node[below right] {$ B$} coordinate (B)
+                -- (1, 2) node[above right] {$ C$} coordinate (C)
+                -- (-1.25, 1) node[above left] {$ D$} coordinate (D) -- cycle  ;
                 
             \draw[gray, thin] (-2,-2) -- (1,2)   (3, -2) -- (-1.23, 1);
                 
-            \draw[blue, thin, fill] ({(-2+1)/2}, {(-2+2)/2}) circle (1pt) coordinate (M) node[left] {$M$}
-                    ( {(3-1.25)/2}, {(-2+1)/2}) circle (1pt) coordinate (N) node[above right] {$N$};
+            \draw[blue, thin, fill] ({(-2+1)/2}, {(-2+2)/2}) circle (1pt) coordinate (M) node[left] {$ M$}
+                    ( {(3-1.25)/2}, {(-2+1)/2}) circle (1pt) coordinate (N) node[above right] {$ N$};
                     
             \path[name path=M--] (M) -- ($ (M) + (B)-(D)$);
             \path[name path=N--] (N) -- ($ (N) + (A)-(C)$);
             \path[name intersections={of=M-- and N--, by=O}];
-            \draw (O) node[below] {$O$};
+            \draw (O) node[below] {$ O$};
             
             \draw[densely dashed] (N) -- (O)  (O) -- (M);
             
-            \draw[red, thick] (O) --($(A)!0.5!(B)$) node[below] {$E$} coordinate (AB)
-                (O) -- ($(B)!0.5!(C)$) node[right] {$F$} coordinate (BC)
-                (O) -- ($(C)!0.5!(D)$) node[above] {$G$} coordinate (CD)
-                (O) -- ($(D)!0.5!(A)$) node[left] {$H$} coordinate (DA) -- cycle;
+            \draw[red, thick] (O) --($(A)!0.5!(B)$) node[below] {$ E$} coordinate (AB)
+                (O) -- ($(B)!0.5!(C)$) node[right] {$ F$} coordinate (BC)
+                (O) -- ($(C)!0.5!(D)$) node[above] {$ G$} coordinate (CD)
+                (O) -- ($(D)!0.5!(A)$) node[left] {$ H$} coordinate (DA) -- cycle;
         \end{tikzpicture}
     }
 \end{center}
-
-
-%%%%%%%%%%%%%%%%

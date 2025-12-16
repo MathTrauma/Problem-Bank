@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기하 문제 관리 시스템</title>
+
+    <!-- MathJax 설정 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                tags: 'ams',
+                macros: {
+                    // 자주 사용하는 매크로 정의
+                    numbering: '',  // \numbering은 무시
+                    mybreak: '{, }',  // \mybreak 처리
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            startup: {
+                pageReady: () => {
+                    return MathJax.startup.defaultPageReady().then(() => {
+                        console.log('MathJax initial typesetting complete');
+                    });
+                }
+            }
+        };
+    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -66,6 +97,93 @@
         .problem-list {
             flex: 1;
             overflow-y: auto;
+        }
+
+        /* Folder structure */
+        .folder-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .category-folder {
+            background: #fafafa;
+        }
+
+        .year-folder {
+            background: #ffffff;
+        }
+
+        .folder-header {
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            user-select: none;
+        }
+
+        .folder-header:hover {
+            background: #f0f0f0;
+        }
+
+        .folder-icon {
+            font-size: 10px;
+            color: #666;
+            width: 12px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .folder-icon.expanded {
+            transform: rotate(0deg);
+        }
+
+        .folder-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .folder-count {
+            font-size: 12px;
+            color: #999;
+            font-weight: normal;
+        }
+
+        .folder-content {
+            animation: slideDown 0.2s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 2000px;
+            }
+        }
+
+        /* Search mode headers */
+        .search-category-header {
+            padding: 10px 15px;
+            background: #e3f2fd;
+            font-weight: 600;
+            font-size: 13px;
+            color: #1976D2;
+            border-bottom: 1px solid #bbdefb;
+        }
+
+        .search-year-header {
+            padding: 8px 15px;
+            padding-left: 35px;
+            background: #f5f5f5;
+            font-weight: 500;
+            font-size: 12px;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .problem-item {
@@ -181,8 +299,32 @@
 
         /* 문제 보기 탭 */
         .problem-content {
-            line-height: 1.8;
-            font-size: 15px;
+            line-height: 2.0;
+            font-size: 17px;
+        }
+
+        .problem-content p {
+            margin-bottom: 15px;
+        }
+
+        .problem-box {
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 3px solid #2196F3;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+        }
+
+        /* MathJax 수식 스타일 */
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: hidden;
         }
 
         /* 메타데이터 표시 */
@@ -205,11 +347,15 @@
 
         /* 풀이 표시 */
         .solution-view {
-            line-height: 1.8;
-            font-size: 15px;
+            line-height: 2.0;
+            font-size: 17px;
             padding: 15px;
             background: #f9f9f9;
             border-radius: 4px;
+        }
+
+        .solution-view p {
+            margin-bottom: 15px;
         }
 
         .empty-state {
@@ -248,9 +394,53 @@
             padding: 40px;
             color: #999;
         }
+
+        /* Floating Navigation */
+        .floating-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+
+        .floating-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-nav a:hover {
+            background: #1976D2;
+            box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .floating-nav svg {
+            width: 18px;
+            height: 18px;
+        }
     </style>
 </head>
 <body>
+    <!-- Floating Navigation -->
+    <div class="floating-nav">
+        <a href="https://www.mathtrauma.com" target="_blank" rel="noopener noreferrer">
+            <svg fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+            </svg>
+            mathtrauma.com
+        </a>
+    </div>
+
     <div class="container">
         <!-- 왼쪽 사이드바 -->
         <div class="sidebar">
@@ -316,6 +506,9 @@
         let currentProblemId = null;
         let allProblems = [];
         let problemsData = {};
+        let problemHierarchy = null;
+        let expandedFolders = new Set();
+        let currentFilteredProblems = null;
 
         // 초기화
         window.addEventListener('DOMContentLoaded', () => {
@@ -346,6 +539,80 @@
             }
         }
 
+        // 문제 분류 함수
+        function classifyProblem(problem) {
+            const source = problem.source || '';
+
+            // KMO 중등부 1차: Extract year from "38회(2024) KMO 중등부 1차 N번"
+            const kmoMatch = source.match(/\d+회\((\d{4})\)\s*KMO\s*중등부\s*1차/);
+            if (kmoMatch) {
+                return { category: 'kmo_middle_1', year: kmoMatch[1], problem };
+            }
+
+            // Empty source
+            if (!source.trim()) {
+                return { category: 'no_source', year: null, problem };
+            }
+
+            // Everything else
+            return { category: 'other', year: null, problem };
+        }
+
+        // 계층 구조 빌더
+        function buildHierarchy(problems) {
+            const hierarchy = {
+                kmo_middle_1: { label: 'KMO 중등부 1차', folders: {}, count: 0 },
+                no_source: { label: '출처 미분류', problems: [], count: 0 },
+                other: { label: '기타 문제', problems: [], count: 0 }
+            };
+
+            problems.forEach(problem => {
+                const { category, year } = classifyProblem(problem);
+
+                if (category === 'kmo_middle_1') {
+                    if (!hierarchy.kmo_middle_1.folders[year]) {
+                        hierarchy.kmo_middle_1.folders[year] = {
+                            label: year,
+                            problems: [],
+                            count: 0
+                        };
+                    }
+                    hierarchy.kmo_middle_1.folders[year].problems.push(problem);
+                    hierarchy.kmo_middle_1.folders[year].count++;
+                    hierarchy.kmo_middle_1.count++;
+                } else {
+                    hierarchy[category].problems.push(problem);
+                    hierarchy[category].count++;
+                }
+            });
+
+            // Sort years descending (2024 → 2011)
+            const sortedYears = Object.keys(hierarchy.kmo_middle_1.folders).sort((a, b) => b - a);
+            const sortedFolders = {};
+            sortedYears.forEach(year => {
+                sortedFolders[year] = hierarchy.kmo_middle_1.folders[year];
+            });
+            hierarchy.kmo_middle_1.folders = sortedFolders;
+
+            return hierarchy;
+        }
+
+        // 폴더 상태 관리
+        function toggleFolder(folderId) {
+            if (expandedFolders.has(folderId)) {
+                expandedFolders.delete(folderId);
+            } else {
+                expandedFolders.add(folderId);
+            }
+            if (!currentFilteredProblems) {
+                renderProblemList(allProblems);
+            }
+        }
+
+        function isFolderExpanded(folderId) {
+            return expandedFolders.has(folderId);
+        }
+
         // 통계 업데이트
         function updateStats(data) {
             const total = data.total_problems;
@@ -361,24 +628,179 @@
             const listContainer = document.getElementById('problemList');
             listContainer.innerHTML = '';
 
-            problems.forEach(problem => {
-                const item = document.createElement('div');
-                item.className = 'problem-item';
-                item.onclick = () => selectProblem(problem.id);
+            if (!currentFilteredProblems) {
+                // Normal mode: hierarchical view
+                problemHierarchy = buildHierarchy(problems);
+                renderHierarchy(listContainer, problemHierarchy);
+            } else {
+                // Search mode: grouped flat list
+                renderSearchResults(listContainer, problems);
+            }
+        }
 
-                let badges = '';
-                if (problem.has_tikz) badges += '<span class="badge badge-tikz">TikZ</span>';
-                if (problem.solution) badges += '<span class="badge badge-solution">풀이</span>';
-                if (problem.source) badges += '<span class="badge badge-source">출처</span>';
+        function renderHierarchy(container, hierarchy) {
+            // Render KMO category with year sub-folders
+            if (hierarchy.kmo_middle_1.count > 0) {
+                renderCategoryFolder(container, 'kmo_middle_1', hierarchy.kmo_middle_1, true);
+            }
 
-                item.innerHTML = `
-                    <div class="problem-id">문제 ${problem.id}</div>
-                    <div class="problem-preview">${problem.source || problem.source_file || '원본 파일 없음'}</div>
-                    <div class="problem-badges">${badges}</div>
-                `;
+            // Render 출처 미분류
+            if (hierarchy.no_source.count > 0) {
+                renderCategoryFolder(container, 'no_source', hierarchy.no_source, false);
+            }
 
-                listContainer.appendChild(item);
-            });
+            // Render 기타 문제
+            if (hierarchy.other.count > 0) {
+                renderCategoryFolder(container, 'other', hierarchy.other, false);
+            }
+        }
+
+        function renderCategoryFolder(container, categoryId, category, hasSubFolders) {
+            const isExpanded = isFolderExpanded(categoryId);
+
+            const folderDiv = document.createElement('div');
+            folderDiv.className = 'folder-item category-folder';
+            folderDiv.innerHTML = `
+                <div class="folder-header" data-folder-id="${categoryId}">
+                    <span class="folder-icon ${isExpanded ? 'expanded' : ''}">${isExpanded ? '▼' : '▶'}</span>
+                    <span class="folder-label">${category.label}</span>
+                    <span class="folder-count">(${category.count})</span>
+                </div>
+            `;
+
+            folderDiv.querySelector('.folder-header').onclick = (e) => {
+                e.stopPropagation();
+                toggleFolder(categoryId);
+                renderProblemList(allProblems);
+            };
+
+            container.appendChild(folderDiv);
+
+            if (isExpanded) {
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'folder-content';
+
+                if (hasSubFolders) {
+                    // Render year folders
+                    Object.keys(category.folders).forEach(year => {
+                        renderYearFolder(contentDiv, categoryId, year, category.folders[year]);
+                    });
+                } else {
+                    // Render problems directly
+                    category.problems.forEach(problem => {
+                        renderProblemItem(contentDiv, problem, 1);
+                    });
+                }
+
+                container.appendChild(contentDiv);
+            }
+        }
+
+        function renderYearFolder(container, parentId, year, yearData) {
+            const folderId = `${parentId}_${year}`;
+            const isExpanded = isFolderExpanded(folderId);
+
+            const folderDiv = document.createElement('div');
+            folderDiv.className = 'folder-item year-folder';
+            folderDiv.innerHTML = `
+                <div class="folder-header" data-folder-id="${folderId}">
+                    <span class="folder-icon ${isExpanded ? 'expanded' : ''}">${isExpanded ? '▼' : '▶'}</span>
+                    <span class="folder-label">${year}</span>
+                    <span class="folder-count">(${yearData.count})</span>
+                </div>
+            `;
+
+            folderDiv.querySelector('.folder-header').onclick = (e) => {
+                e.stopPropagation();
+                toggleFolder(folderId);
+                renderProblemList(allProblems);
+            };
+
+            container.appendChild(folderDiv);
+
+            if (isExpanded) {
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'folder-content';
+
+                yearData.problems.forEach(problem => {
+                    renderProblemItem(contentDiv, problem, 2);
+                });
+
+                container.appendChild(contentDiv);
+            }
+        }
+
+        function renderProblemItem(container, problem, indentLevel) {
+            const item = document.createElement('div');
+            item.className = 'problem-item';
+            item.style.paddingLeft = `${15 + (indentLevel * 20)}px`;
+
+            if (currentProblemId === problem.id) {
+                item.classList.add('active');
+            }
+
+            item.onclick = () => selectProblem(problem.id);
+
+            let badges = '';
+            if (problem.has_tikz) badges += '<span class="badge badge-tikz">TikZ</span>';
+            if (problem.solution) badges += '<span class="badge badge-solution">풀이</span>';
+            if (problem.source) badges += '<span class="badge badge-source">출처</span>';
+
+            item.innerHTML = `
+                <div class="problem-id">문제 ${problem.id}</div>
+                <div class="problem-preview">${problem.source || problem.source_file || '원본 파일 없음'}</div>
+                <div class="problem-badges">${badges}</div>
+            `;
+
+            container.appendChild(item);
+        }
+
+        function renderSearchResults(container, problems) {
+            const classified = buildHierarchy(problems);
+
+            // KMO problems
+            if (classified.kmo_middle_1.count > 0) {
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'search-category-header';
+                categoryHeader.textContent = `${classified.kmo_middle_1.label} (${classified.kmo_middle_1.count})`;
+                container.appendChild(categoryHeader);
+
+                Object.keys(classified.kmo_middle_1.folders).forEach(year => {
+                    const yearFolder = classified.kmo_middle_1.folders[year];
+                    const yearHeader = document.createElement('div');
+                    yearHeader.className = 'search-year-header';
+                    yearHeader.textContent = `${year} (${yearFolder.count})`;
+                    container.appendChild(yearHeader);
+
+                    yearFolder.problems.forEach(problem => {
+                        renderProblemItem(container, problem, 2);
+                    });
+                });
+            }
+
+            // No source problems
+            if (classified.no_source.count > 0) {
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'search-category-header';
+                categoryHeader.textContent = `${classified.no_source.label} (${classified.no_source.count})`;
+                container.appendChild(categoryHeader);
+
+                classified.no_source.problems.forEach(problem => {
+                    renderProblemItem(container, problem, 1);
+                });
+            }
+
+            // Other problems
+            if (classified.other.count > 0) {
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'search-category-header';
+                categoryHeader.textContent = `${classified.other.label} (${classified.other.count})`;
+                container.appendChild(categoryHeader);
+
+                classified.other.problems.forEach(problem => {
+                    renderProblemItem(container, problem, 1);
+                });
+            }
         }
 
         // 문제 선택
@@ -386,11 +808,11 @@
             currentProblemId = problemId;
 
             // 목록에서 선택 표시
-            document.querySelectorAll('.problem-item').forEach((item, index) => {
-                if (allProblems[index].id === problemId) {
+            document.querySelectorAll('.problem-item').forEach(item => {
+                item.classList.remove('active');
+                const idText = item.querySelector('.problem-id')?.textContent;
+                if (idText && idText.includes(problemId)) {
                     item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
                 }
             });
 
@@ -482,25 +904,79 @@
             }
         }
 
-        // LaTeX를 HTML로 변환 (간단한 변환)
+        // LaTeX를 HTML로 변환 (수식 보호)
         function convertLatexToHtml(latex) {
             if (!latex) return '';
 
             let html = latex;
 
+            // 1. 수식을 임시로 보호 (치환)
+            const mathPlaceholders = [];
+            let mathIndex = 0;
+
+            // Display math $$...$$ 보호
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+                const placeholder = `___DISPLAYMATH_${mathIndex}___`;
+                mathPlaceholders.push({ placeholder, content: match });
+                mathIndex++;
+                return placeholder;
+            });
+
+            // Inline math $...$ 보호
+            html = html.replace(/\$([^\$]+?)\$/g, (match) => {
+                const placeholder = `___INLINEMATH_${mathIndex}___`;
+                mathPlaceholders.push({ placeholder, content: match });
+                mathIndex++;
+                return placeholder;
+            });
+
+            // 2. LaTeX 명령어 처리
+            // \numbering 제거
+            html = html.replace(/\\numbering\s*/g, '<strong>문제.</strong> ');
+
             // 환경 변환
-            html = html.replace(/\\begin\{problem\}/g, '<div style="padding:15px; background:#f9f9f9; border-left:3px solid #2196F3;">');
+            html = html.replace(/\\begin\{problem\}/g, '<div class="problem-box">');
             html = html.replace(/\\end\{problem\}/g, '</div>');
             html = html.replace(/\\begin\{center\}/g, '<div style="text-align:center;">');
             html = html.replace(/\\end\{center\}/g, '</div>');
+            html = html.replace(/\\begin\{figure\}(\[.*?\])?/g, '<div class="figure">');
+            html = html.replace(/\\end\{figure\}/g, '</div>');
 
-            // 줄바꿈
-            html = html.replace(/\\\\/g, '<br>');
+            // 줄바꿈 (문장 끝의 \\만 변환)
+            html = html.replace(/\\\\(?=\s*$)/gm, '<br>');
+            html = html.replace(/\\\\(?=\s*\n)/g, '<br>');
             html = html.replace(/\\newline/g, '<br>');
 
-            // 단락
-            html = html.replace(/\n\n/g, '</p><p>');
-            html = '<p>' + html + '</p>';
+            // \vfill, \vspace 등 제거
+            html = html.replace(/\\vfill/g, '');
+            html = html.replace(/\\vspace\{[^}]*\}/g, '');
+            html = html.replace(/\\hspace\{[^}]*\}/g, '');
+
+            // 단락 구분
+            html = html.replace(/\n\n+/g, '</p><p>');
+
+            // 3. 수식 복원
+            mathPlaceholders.forEach(({ placeholder, content }) => {
+                html = html.replace(placeholder, content);
+            });
+
+            // 4. 마침표 다음 줄바꿈을 <br>로 변환
+            // 마침표 뒤에 개행 문자가 있고, 그 다음에 한글/영문/숫자가 오면 <br>로 변환
+            html = html.replace(/\.\s*\n\s*([가-힣A-Za-z0-9$])/g, '.<br>$1');
+
+            // 5. 수식 뒤에 공백 추가 (수식 바로 뒤 한글/영문이 오면)
+            // Inline math $...$ 뒤에 한글/영문이 바로 오면 공백 추가
+            html = html.replace(/(\$[^\$]+?\$)([가-힣a-zA-Z])/g, '$1 $2');
+            // Display math $$...$$ 뒤에 한글/영문이 바로 오면 공백 추가
+            html = html.replace(/(\$\$[^\$]+?\$\$)([가-힣a-zA-Z])/g, '$1 $2');
+
+            // 6. 단락으로 감싸기
+            if (!html.startsWith('<div') && !html.startsWith('<p')) {
+                html = '<p>' + html + '</p>';
+            }
+
+            // 빈 단락 제거
+            html = html.replace(/<p>\s*<\/p>/g, '');
 
             return html;
         }
@@ -529,12 +1005,24 @@
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
+
+                if (query.trim() === '') {
+                    // Clear search mode
+                    currentFilteredProblems = null;
+                    renderProblemList(allProblems);
+                    return;
+                }
+
+                // Filter problems
                 const filtered = allProblems.filter(p => {
                     return p.id.includes(query) ||
                            (p.source && p.source.toLowerCase().includes(query)) ||
                            (p.source_file && p.source_file.toLowerCase().includes(query)) ||
                            (p.tags && p.tags.some(tag => tag.toLowerCase().includes(query)));
                 });
+
+                // Enter search mode
+                currentFilteredProblems = filtered;
                 renderProblemList(filtered);
             });
         }

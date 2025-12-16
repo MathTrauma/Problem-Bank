@@ -1,16 +1,18 @@
 % Problem ID: 155
 % Original file: Training_1/3_technique/1_midpoint.tex
+        %\useasboundingbox (-4.5, -4.5) rectangle (4.5,4.5);
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\numbering 그림과 같이 반지름의 길이가 1이고 중심각의 크기가 $90^\circ$인 부채꼴 $OAB$가 있다. 
-호 $AB$ 위의 점 $C$에 대하여 선분 $BC$를 지름으로 하는 원을 그린다. 
-선분 $BC$의 중점을 지나고 직선 $OB$에 평행한 직선이 원과 만나는 점 중 점 $B$에 가까운 점을 $P$라 하자. 
-$\overline{BC}=x$ 일 때, 삼각형 $OAP$의 넓이를 $S(x)$라 하자. 
-$S(x)$ 의 최댓값이 $\frac q p$일 때, $p+q$의 값을 구하시오. 
-(단, $0 \lt x \le \sqrt{2}$ 이고, $p$와 $q$는 서로소인 자연수이다.)\\
+
+\numbering 그림과 같이 반지름의 길이가 1이고 중심각의 크기가 $90^\circ$ 인 부채꼴 $OAB$ 가 있다.
+호 $AB$ 위의 점 $ C$에 대하여 선분 $ BC$를 지름으로 하는 원을 그린다.
+선분 $ BC$의 중점을 지나고 직선 $ OB$에 평행한 직선이 원과 만나는 점 중 점 $ B$에 가까운 점을 $ P$라 하자. 
+$\overline{BC}=x$ 일 때, 삼각형 $ OAP$의 넓이를 $ S(x)$라 하자. 
+$ S(x)$ 의 최댓값이 $\frac q p$ 일 때, $p+q$ 의 값을 구하시오. 
+(단, $0 \lt x \le \sqrt{2}$ 이고, $ p$와 $ q$는 서로소인 자연수이다.)\\
 
 \begin{center}
     \begin{tikzpicture}[scale=1.2]
-        %\useasboundingbox (-4.5, -4.5) rectangle (4.5,4.5);
         \def\r{5}
         \tkzDefPoints{0/0/O, \r/0/A, 0/\r/B}
         \tkzDefPoint(0,6){B_1}
@@ -23,19 +25,18 @@ $S(x)$ 의 최댓값이 $\frac q p$일 때, $p+q$의 값을 구하시오.
         \tkzInterLL(Gamma,P)(O,A)   \tkzGetPoint{D}
         
 
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \tkzDrawPolygon[fill=gray!30, opacity=0.5](O,A,P)
 
         \tkzDrawPoints(O,A,B,C,P)
-        \tkzLabelPoint[above right](C){$C$}
+        \tkzLabelPoint[above right](C){$ C$}
         \tkzDrawArc(O,A)(B)
 
         \tkzDrawCircle(Gamma, B)
         \tkzDrawSegments(B,O O,A B,C D,P)
 
-        \tkzLabelPoint[above](P){$P$}
-        \tkzLabelPoint[below left](O){$O$}
-        \tkzLabelPoint[below right](A){$A$}
-        \tkzLabelPoint[above left](B){$B$}
+        \tkzLabelPoint[above](P){$ P$}
+        \tkzLabelPoint[below left](O){$ O$}
+        \tkzLabelPoint[below right](A){$ A$}
+        \tkzLabelPoint[above left](B){$ B$}
     \end{tikzpicture} 
 \end{center}
