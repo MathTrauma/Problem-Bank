@@ -1,0 +1,23 @@
+% Problem ID: 068
+% Original file: PAS/Pack10.tex
+
+\numbering 한 변의 길이가 1인 정사각형 $ABCD$의 각 점에서 각 변을 $t:1-t$로 내분한 점들을 이었을 때, 
+내부에 발생하는 정사각형의 넓이를 구하여라.\\
+\begin{center}
+    \begin{tikzpicture}
+        \tkzDefPoints{0/0/A, 4/0/B, 4/4/C, 0/4/D}
+        \tkzDrawPoints(A,B,C,D)
+        \tkzLabelPoint[below left](A){$A$}
+        \tkzLabelPoint[below right](B){$B$}
+        \tkzLabelPoint[above right](C){$C$}
+        \tkzLabelPoint[above left](D){$D$}
+
+        \tkzDrawSegments[thick](A,B B,C C,D D,A)
+
+        \tkzDefBarycentricPoint(A=3,B=1)        \tkzGetPoint{Ab}
+        \tkzDefBarycentricPoint(B=3,C=1)        \tkzGetPoint{Bc}
+        \tkzDefBarycentricPoint(C=3,D=1)        \tkzGetPoint{Cd}
+        \tkzDefBarycentricPoint(D=3,A=1)        \tkzGetPoint{Da}
+        \tkzDrawSegments[thick](A,Bc B,Cd C,Da D,Ab)
+    \end{tikzpicture}
+\end{center}

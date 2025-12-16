@@ -1,0 +1,78 @@
+% Problem ID: 107
+% Original file: Training_1/0_ParallelFrame/0_bisector_1.tex
+
+\numbering 평행사변형 $ABCD$의 한 변 $CD$위의 임의의 한 점을 $F$라 하자. 
+\[ \overline{AE}^2 = \overline{EF} \cdot \overline{EG} \] 
+을 보여라. \\
+\tikzmath {   
+    \R = 3; \myRatio = 0.3; \opac = 0.7;
+    \a=115; \b=-155; \c=-25; \e=-65;
+}
+
+%\begin{center} \begin{tikzpicture}[scale=0.5]
+%    \draw[semithick] (0,0) coordinate (O) circle(\R);
+%    \draw (O) node[above] {$O$} circle(1pt);
+%    \foreach \i / \name / \pos in {\a/A/110, \b/B/210, \c/C/-30, \e/E/270}{
+%        \coordinate[label=\pos:$\name$] (\name) at (\i:\R);
+%    }
+%    \draw[very thick] (A) -- (B) -- (C) --cycle;
+%    \draw[name path=A--E] (A)--(E) ;
+%    \path[name path=B--C] (B)--(C) ;
+%    \path[name intersections={of=A--E and B--C, by=D}];
+%    \draw (D) node[below left] {$D$} circle(1pt);
+%    \draw ($(A)!(D)!(B)$) coordinate (G) node[left] {$G$} circle(1pt);
+%    \draw ($(A)!(D)!(C)$) coordinate (H) node[left] {$H$} circle(1pt);
+%
+%    \draw[name path=G--P] (G)--($(G)!2.5!(D)$);
+%    \path[name path=A--P] (C) -- ($(A)!3!(C)$);
+%    \path[name intersections={of=G--P and A--P, by=P}];
+%    \draw (C)--(P) (G)--(P);
+%
+%    \path[name path=H--Q] (H)--($(H)!6!(D)$);
+%    \path[name path=A--Q] (B) -- ($(A)!3!(B)$);
+%    \path[name intersections={of=H--Q and A--Q, by=Q}];
+%    \draw (B)--(Q) (H)--(Q);
+%
+%    \draw[name path=A--X] (A) -- ($(A)!1.7!-90:(E)$);
+%    \draw[name path=E--Y] (E) -- ($(E)!1!-90:(A)$);
+%    \path[name path=X--Y] ($(C)!2.5!(B)$) -- ($(B)!1.5!(C)$);
+%
+%    \path[name intersections={of=A--X and X--Y, by = X}];
+%    \draw (X) node[below] {$X$} -- (B);
+%
+%    \draw let \p1=($(X)!0.5!(Q)$), \p2=($(X)!0.5!(P)$), 
+%        \p3=($(\p1)!1!90:(Q)$), \p4=($(\p2)!1!-90:(P)$),	
+%        \p5=(intersection of \p1--\p3 and \p2--\p4)    
+%        in coordinate (O_1) at (\p5) ;
+%
+%    \node[name path=C_1, circle through=(X), draw=blue] at (O_1) {};
+%
+%\end{tikzpicture} \end{center}
+
+
+\colorlet{input}{red!80!black}
+\colorlet{output}{red!70!black}
+\colorlet{triangle}{green!50!black!40}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2,thick,help lines/.style={thin,draw=black!50}]
+    %\tkzInit[xmax=5,ymax=5]
+    %\tkzDrawX[>=latex]
+    %\tkzDrawY[>=latex]
+
+    \tkzDefPoint(0,0){A}        \tkzLabelPoint[below left](A){$A$}       
+    \tkzDefPoint(3,0){B}        \tkzLabelPoint[below right](B){$B$}  
+    \tkzDefPoint(4,2.5){C}      \tkzLabelPoint[above right](C){$C$}  
+    \tkzDefPoint(1,2.5){D}      \tkzLabelPoint[above left](D){$D$}  
+
+    \tkzDefBarycentricPoint(C=2,D=1)   \tkzGetPoint{F} \tkzLabelPoint[above](F){$F$} 
+    \tkzInterLL(B,D)(A,F)       \tkzGetPoint{E}     
+    \tkzLabelPoint[below, yshift=-0.1cm](E){$E$}
+
+    \tkzInterLL(B,C)(A,F)       \tkzGetPoint{G}
+    \tkzLabelPoint[right, yshift=-0.1cm](G){$G$}
+    
+    \tkzDrawPoints(A,B,C,D,E,F,G)
+    \tkzDrawSegments[thick](A,G A,B B,D B,G C,D D,A)
+\end{tikzpicture}
+\end{center}

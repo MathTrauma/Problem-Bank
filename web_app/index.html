@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기하 문제 관리 시스템</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* 왼쪽 사이드바 - 문제 목록 */
+        .sidebar {
+            width: 350px;
+            background: white;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background: #2196F3;
+            color: white;
+        }
+
+        .sidebar-header h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .problem-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .problem-item {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .problem-item:hover {
+            background: #f8f8f8;
+        }
+
+        .problem-item.active {
+            background: #e3f2fd;
+            border-left: 3px solid #2196F3;
+        }
+
+        .problem-id {
+            font-weight: bold;
+            color: #2196F3;
+            margin-bottom: 5px;
+        }
+
+        .problem-preview {
+            font-size: 13px;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .problem-badges {
+            margin-top: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 11px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+
+        .badge-tikz {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .badge-solution {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .badge-source {
+            background: #e0f2f1;
+            color: #00695c;
+        }
+
+        /* 오른쪽 메인 영역 */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .main-header {
+            padding: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            background: white;
+        }
+
+        .main-header h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            border: none;
+            background: #f5f5f5;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background: #2196F3;
+            color: white;
+        }
+
+        .content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 문제 보기 탭 */
+        .problem-content {
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* 메타데이터 표시 */
+        .metadata-view {
+            line-height: 1.8;
+        }
+
+        .metadata-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .metadata-item strong {
+            display: block;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        /* 풀이 표시 */
+        .solution-view {
+            line-height: 1.8;
+            font-size: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: #323232;
+            color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 왼쪽 사이드바 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>기하 문제 관리</h1>
+                <div class="stats" id="stats">
+                    로딩 중...
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="문제 검색...">
+            </div>
+
+            <div class="problem-list" id="problemList">
+                <div class="loading">문제 목록 로딩 중...</div>
+            </div>
+        </div>
+
+        <!-- 오른쪽 메인 영역 -->
+        <div class="main">
+            <div class="main-header">
+                <h2 id="currentProblemTitle">문제를 선택하세요</h2>
+                <div class="tabs">
+                    <button class="tab active" data-tab="view">문제 보기</button>
+                    <button class="tab" data-tab="solution">풀이</button>
+                    <button class="tab" data-tab="metadata">메타데이터</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <!-- 문제 보기 탭 -->
+                <div class="tab-content active" id="tab-view">
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <p>왼쪽 목록에서 문제를 선택하세요</p>
+                    </div>
+                </div>
+
+                <!-- 풀이 보기 탭 -->
+                <div class="tab-content" id="tab-solution">
+                    <div class="empty-state">
+                        <p>문제를 선택하세요</p>
+                    </div>
+                </div>
+
+                <!-- 메타데이터 탭 -->
+                <div class="tab-content" id="tab-metadata">
+                    <div class="empty-state">
+                        <p>문제를 선택하세요</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let currentProblemId = null;
+        let allProblems = [];
+        let problemsData = {};
+
+        // 초기화
+        window.addEventListener('DOMContentLoaded', () => {
+            loadProblems();
+            setupTabs();
+            setupSearch();
+        });
+
+        // 문제 데이터 로드 (번들 JSON 파일)
+        async function loadProblems() {
+            try {
+                const response = await fetch('problems_bundle.json');
+                const data = await response.json();
+
+                allProblems = data.problems;
+
+                // 빠른 조회를 위한 맵 생성
+                problemsData = {};
+                allProblems.forEach(p => {
+                    problemsData[p.id] = p;
+                });
+
+                updateStats(data);
+                renderProblemList(allProblems);
+            } catch (error) {
+                console.error('Failed to load problems:', error);
+                showToast('문제 목록을 불러오는데 실패했습니다.');
+            }
+        }
+
+        // 통계 업데이트
+        function updateStats(data) {
+            const total = data.total_problems;
+            const withSolution = allProblems.filter(p => p.solution).length;
+            const completionRate = total > 0 ? Math.round(withSolution / total * 100) : 0;
+
+            document.getElementById('stats').textContent =
+                `전체: ${total} | 풀이: ${withSolution} | 완료율: ${completionRate}%`;
+        }
+
+        // 문제 목록 렌더링
+        function renderProblemList(problems) {
+            const listContainer = document.getElementById('problemList');
+            listContainer.innerHTML = '';
+
+            problems.forEach(problem => {
+                const item = document.createElement('div');
+                item.className = 'problem-item';
+                item.onclick = () => selectProblem(problem.id);
+
+                let badges = '';
+                if (problem.has_tikz) badges += '<span class="badge badge-tikz">TikZ</span>';
+                if (problem.solution) badges += '<span class="badge badge-solution">풀이</span>';
+                if (problem.source) badges += '<span class="badge badge-source">출처</span>';
+
+                item.innerHTML = `
+                    <div class="problem-id">문제 ${problem.id}</div>
+                    <div class="problem-preview">${problem.source || problem.source_file || '원본 파일 없음'}</div>
+                    <div class="problem-badges">${badges}</div>
+                `;
+
+                listContainer.appendChild(item);
+            });
+        }
+
+        // 문제 선택
+        function selectProblem(problemId) {
+            currentProblemId = problemId;
+
+            // 목록에서 선택 표시
+            document.querySelectorAll('.problem-item').forEach((item, index) => {
+                if (allProblems[index].id === problemId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            loadProblem(problemId);
+        }
+
+        // 문제 상세 로드
+        function loadProblem(problemId) {
+            const problem = problemsData[problemId];
+            if (!problem) {
+                showToast('문제를 찾을 수 없습니다.');
+                return;
+            }
+
+            // 제목 업데이트
+            document.getElementById('currentProblemTitle').textContent = `문제 ${problemId}`;
+
+            // 문제 내용 표시
+            const viewTab = document.getElementById('tab-view');
+            if (problem.content) {
+                viewTab.innerHTML = `<div class="problem-content">${convertLatexToHtml(problem.content)}</div>`;
+            } else {
+                viewTab.innerHTML = '<div class="empty-state"><p>문제 내용이 없습니다.</p></div>';
+            }
+
+            // 풀이 표시
+            const solutionTab = document.getElementById('tab-solution');
+            if (problem.solution) {
+                solutionTab.innerHTML = `
+                    <h3 style="margin-bottom: 15px;">풀이</h3>
+                    <div class="solution-view">${convertLatexToHtml(problem.solution)}</div>
+                `;
+            } else {
+                solutionTab.innerHTML = '<div class="empty-state"><p>풀이가 없습니다.</p></div>';
+            }
+
+            // 메타데이터 표시
+            const metadataTab = document.getElementById('tab-metadata');
+            metadataTab.innerHTML = `
+                <div class="metadata-view">
+                    <div class="metadata-item">
+                        <strong>문제 ID</strong>
+                        ${problem.id}
+                    </div>
+                    ${problem.source ? `
+                    <div class="metadata-item">
+                        <strong>출처</strong>
+                        ${problem.source}
+                    </div>` : ''}
+                    ${problem.answer ? `
+                    <div class="metadata-item">
+                        <strong>답안</strong>
+                        ${problem.answer}
+                    </div>` : ''}
+                    ${problem.category ? `
+                    <div class="metadata-item">
+                        <strong>카테고리</strong>
+                        ${problem.category}
+                    </div>` : ''}
+                    ${problem.difficulty ? `
+                    <div class="metadata-item">
+                        <strong>난이도</strong>
+                        ${problem.difficulty}/5
+                    </div>` : ''}
+                    ${problem.tags && problem.tags.length > 0 ? `
+                    <div class="metadata-item">
+                        <strong>태그</strong>
+                        ${problem.tags.join(', ')}
+                    </div>` : ''}
+                    ${problem.note ? `
+                    <div class="metadata-item">
+                        <strong>메모</strong>
+                        ${problem.note}
+                    </div>` : ''}
+                    <div class="metadata-item">
+                        <strong>원본 파일</strong>
+                        ${problem.source_file}
+                    </div>
+                    <div class="metadata-item">
+                        <strong>TikZ 사용</strong>
+                        ${problem.has_tikz ? '예' : '아니오'}
+                    </div>
+                </div>
+            `;
+
+            // MathJax 렌더링
+            if (window.MathJax) {
+                MathJax.typesetPromise([viewTab, solutionTab]);
+            }
+        }
+
+        // LaTeX를 HTML로 변환 (간단한 변환)
+        function convertLatexToHtml(latex) {
+            if (!latex) return '';
+
+            let html = latex;
+
+            // 환경 변환
+            html = html.replace(/\\begin\{problem\}/g, '<div style="padding:15px; background:#f9f9f9; border-left:3px solid #2196F3;">');
+            html = html.replace(/\\end\{problem\}/g, '</div>');
+            html = html.replace(/\\begin\{center\}/g, '<div style="text-align:center;">');
+            html = html.replace(/\\end\{center\}/g, '</div>');
+
+            // 줄바꿈
+            html = html.replace(/\\\\/g, '<br>');
+            html = html.replace(/\\newline/g, '<br>');
+
+            // 단락
+            html = html.replace(/\n\n/g, '</p><p>');
+            html = '<p>' + html + '</p>';
+
+            return html;
+        }
+
+        // 탭 설정
+        function setupTabs() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+
+                    // 탭 활성화
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // 콘텐츠 표시
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(`tab-${tabName}`).classList.add('active');
+                });
+            });
+        }
+
+        // 검색 설정
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filtered = allProblems.filter(p => {
+                    return p.id.includes(query) ||
+                           (p.source && p.source.toLowerCase().includes(query)) ||
+                           (p.source_file && p.source_file.toLowerCase().includes(query)) ||
+                           (p.tags && p.tags.some(tag => tag.toLowerCase().includes(query)));
+                });
+                renderProblemList(filtered);
+            });
+        }
+
+        // 토스트 알림
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

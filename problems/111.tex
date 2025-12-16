@@ -1,0 +1,70 @@
+% Problem ID: 111
+% Answer: $
+% Original file: Training_1/0_ParallelFrame/0_bisector_2.tex
+
+%
+\numbering 삼각형 $ABC$는 
+$\overline{AC}=4, \overline{BC}=2 \mybreak \angle ACB=90^\circ$ 
+를 만족하고, \\
+삼각형 $PQR$은 
+$\overline{PQ}=\overline{QR} = 2 \mybreak \angle PQR = 90^\circ$
+를 만족한다.\\
+
+두 삼각형이 직선 $l$ 위에 놓인 상태로 서로 반대 방향으로 매초 1의 속력으로 움직인다. 
+시각을 $t$로 두면 겹쳐지는 넓이는 $t=a (2\le a \le 3)$에서 최댓값을 가진다. 
+$a$와 최댓값을 구하여라.\\
+
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+        \begin{center}
+            \begin{tikzpicture}
+                \tkzDefPoint(4,0){A}       \tkzDrawPoint[label=below:$A$](A)
+                \tkzDefPoint(0,0){C}       \tkzDrawPoint[label=below:$C$](C)
+                \tkzDefPoint(0,2){B}       \tkzDrawPoint[label=above left:$B$](B)
+
+                \tkzDefPoint(1.5, 1.5){S}
+                \tkzDefPoint(3, 1.5){T}
+                \tkzDrawSegment[vector style](S,T)
+
+                \tkzDefPoint(5, 1.5){S1}
+                \tkzDefPoint(3.5, 1.5){T1}
+                \tkzDrawSegment[vector style](S1,T1)
+
+                \begin{scope}[xshift=0, blue]
+                    \tkzDefPoint(6,0){Q}       \tkzDrawPoint[label=below:$Q$](Q)
+                    \tkzDefPoint(4,0){P}       \tkzDrawPoint[label=above:$P$](P)
+                    \tkzDefPoint(6,2){R}      \tkzDrawPoint[label=above right:$R$](R)
+                \end{scope}
+
+                \tkzDefPoint(0,0){Left}      \tkzDefPoint(6,0){Right}
+                \tkzDrawLine(Left,Right)   \tkzLabelLine[pos=1.25, right](Left,Right){$l$}
+                \tkzDrawPolygons(A,B,C P,Q,R)
+            \end{tikzpicture} 
+        \end{center}
+	\end{subfigure}  %%%%%%%%%
+	\begin{subfigure}{0.5\textwidth}
+        \begin{center}
+            \begin{tikzpicture}
+                \tkzDefPoint(4,0){A}       \tkzDrawPoint[label=below:$A$](A)
+                \tkzDefPoint(0,0){C}       \tkzDrawPoint[label=below:$C$](C)
+                \tkzDefPoint(0,2){B}       \tkzDrawPoint[label=above left:$B$](B)
+
+                \begin{scope}[xshift=-3cm, blue]
+                    \tkzDefPoint(6,0){Q}       \tkzDrawPoint[label=below:$Q$](Q)
+                    \tkzDefPoint(4,0){P}       \tkzDrawPoint[label=above:$P$](P)
+                    \tkzDefPoint(6,2){R}      \tkzDrawPoint[label=above right:$R$](R)
+                \end{scope}
+
+                \tkzDefPoint(0,0){Left}      \tkzDefPoint(6,0){Right}
+                \tkzDrawLine(Left,Right)   \tkzLabelLine[pos=1.25, right](Left,Right){$l$}
+                \tkzDrawPolygons(A,B,C P,Q,R)
+
+                \tkzInterLL(P,R)(A,B)       \tkzGetPoint{X}
+                \tkzInterLL(R,Q)(A,B)       \tkzGetPoint{Y}
+                \tkzDrawPolygon[fill=yellow!50, opacity=.5](X,P,Q,Y)
+            \end{tikzpicture} 
+        \end{center}
+	\end{subfigure}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\caption{Caption}
+\end{figure}

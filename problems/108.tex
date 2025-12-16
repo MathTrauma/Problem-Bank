@@ -1,0 +1,40 @@
+% Problem ID: 108
+% Original file: Training_1/0_ParallelFrame/0_bisector_1.tex
+
+%
+\numbering 정사각형 $ABCD$에서 $\overline{CF}=1$이고 
+$\overline{BP}:\overline{PF}=4:5 $일 때, 정사각형 한 변의 길이를 구하여라.\\
+ \\ %  category : 정사각형
+
+ \begin{center}
+    \begin{tikzpicture}
+        \def\t{2}
+
+        \foreach \a/\n in {0/A,90/B,180/C,270/D} {
+            \tkzDefPoint(\a+45:2*sqrt(2)){\n}
+        }
+        %\tkzDefPoints{0/0/A, 6/0/B, 6/6/C, 0/6/D}
+        \tkzLabelPoint[above right](A){$A$} 
+        \tkzLabelPoint[above left](B){$B$} 
+        \tkzLabelPoint[below left](C){$C$} 
+        \tkzLabelPoint[below right](D){$D$} 
+        \tkzDrawPolygon[semithick](A,B,C,D)
+
+        \tkzDefPointOnLine[pos=.5](B,C)  \tkzGetPoint{E} 
+        \tkzDrawPoint(E)    \tkzLabelPoint[left](E){$E$}
+        \tkzDrawSegment(A,E)
+
+        \tkzFindAngle(B,A,E)    \tkzGetAngle{ang}
+        \tkzDefPointBy[rotation = center A angle \ang](E)    \tkzGetPoint{X}
+
+        \tkzInterLL(A,X)(C,D)   \tkzGetPoint{F}     
+        \tkzDrawPoint(F)    \tkzLabelPoint[below right](F){$F$}
+        \tkzDrawSegments(A,F B,F)
+
+        \tkzLabelAngles[pos=.5](B,A,E E,A,F){$\circ$}
+        \tkzInterLL(A,E)(B,F)   \tkzGetPoint{P}
+        \tkzDrawPoint(P)    \tkzLabelPoint[above, xshift=.1cm, yshift=.1cm](P){$P$}
+
+        \tkzDrawSegment[thin, dim={$1$, -10pt, below=4pt}](C,F)
+    \end{tikzpicture}
+\end{center}

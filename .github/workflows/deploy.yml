@@ -1,0 +1,82 @@
+name: Deploy to GitHub Pages
+
+on:
+  # main 브랜치에 푸시될 때 실행
+  push:
+    branches: [ main ]
+    paths:
+      - 'problems/**'
+      - '___scripts/problems_metadata.json'
+      - 'web_app/**'
+      - '.github/workflows/deploy.yml'
+
+  # 수동으로 workflow 실행 가능
+  workflow_dispatch:
+
+# GitHub Pages 배포 권한 설정
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 동시 배포 방지 (하나씩 순차 실행)
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Copy data to web_app
+      run: |
+        echo "Copying problems data..."
+        mkdir -p web_app/data
+        cp -r problems web_app/data/
+        cp ___scripts/problems_metadata.json web_app/data/
+        echo "✅ Data copied successfully"
+
+    - name: Build data bundle
+      run: |
+        cd web_app
+        echo "Building problems bundle..."
+        python3 build_data.py
+        echo "✅ Bundle created successfully"
+        ls -lh problems_bundle.json
+
+    - name: Prepare deployment files
+      run: |
+        echo "Preparing files for deployment..."
+        mkdir -p _site
+        cp web_app/index.html _site/
+        cp web_app/problems_bundle.json _site/
+        echo "✅ Deployment files ready"
+        echo "Files to deploy:"
+        ls -lh _site/
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '_site'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

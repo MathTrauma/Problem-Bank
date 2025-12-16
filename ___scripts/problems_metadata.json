@@ -1,0 +1,1845 @@
+{
+  "total_problems": 184,
+  "problems": [
+    {
+      "id": "001",
+      "filename": "001.tex",
+      "source_file": "Problem Sets/contents/00_수선.tex",
+      "source": "35회(2021) KMO 중등부 1차 4번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "002",
+      "filename": "002.tex",
+      "source_file": "Problem Sets/contents/02_이등분선.tex",
+      "source": "",
+      "answer": "35",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 35 \\\\"
+    },
+    {
+      "id": "003",
+      "filename": "003.tex",
+      "source_file": "Problem Sets/contents/09_외각.tex",
+      "source": "34회(2021) KMO 중등부 1차 1번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "004",
+      "filename": "004.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "005",
+      "filename": "005.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "006",
+      "filename": "006.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "007",
+      "filename": "007.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "008",
+      "filename": "008.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "009",
+      "filename": "009.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "010",
+      "filename": "010.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "011",
+      "filename": "011.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "012",
+      "filename": "012.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "013",
+      "filename": "013.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "014",
+      "filename": "014.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "015",
+      "filename": "015.tex",
+      "source_file": "Problem Sets/contents/20_좌표.tex",
+      "source": "2022학년도 경기과학 영재성 검사II 2번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "016",
+      "filename": "016.tex",
+      "source_file": "Problem Sets/contents/99_Easy.tex",
+      "source": "2022학년도 경기영재고 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "017",
+      "filename": "017.tex",
+      "source_file": "Problem Sets/contents/99_Easy.tex",
+      "source": "2023학년도 서울영재고 - 14번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "018",
+      "filename": "018.tex",
+      "source_file": "Problem Sets/contents/99_Easy.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "019",
+      "filename": "019.tex",
+      "source_file": "Problem Sets/contents/quiz01.tex",
+      "source": "28회(2014) KMO 중등부 1차 4번",
+      "answer": "280",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 4번 }\\\\\n    답 : 280\\\\"
+    },
+    {
+      "id": "020",
+      "filename": "020.tex",
+      "source_file": "Problem Sets/contents/quiz01.tex",
+      "source": "25회(2011) KMO 중등부 1차 10번",
+      "answer": "625",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 25회(2011) KMO 중등부 1차 10번 }\\\\\n    답 : 625 \\\\\n    %\\import{Quiz01}{prob3_ans}"
+    },
+    {
+      "id": "021",
+      "filename": "021.tex",
+      "source_file": "Problem Sets/contents/quiz01.tex",
+      "source": "",
+      "answer": "80",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 80\\\\"
+    },
+    {
+      "id": "022",
+      "filename": "022.tex",
+      "source_file": "Problem Sets/contents/quiz01.tex",
+      "source": "29회(2015) KMO 중등부 1차 19번",
+      "answer": "100",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 29회(2015) KMO 중등부 1차 19번 }\\\\\n    답 : 100\\\\"
+    },
+    {
+      "id": "023",
+      "filename": "023.tex",
+      "source_file": "Problem Sets/contents/quiz04.tex",
+      "source": "29회(2015) KMO 중등부 1차 3번",
+      "answer": "100",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 29회(2015) KMO 중등부 1차 3번 }\\\\\n    답 : 100\\\\"
+    },
+    {
+      "id": "024",
+      "filename": "024.tex",
+      "source_file": "Problem Sets/contents/quiz04.tex",
+      "source": "29회(2015) KMO 중등부 1차 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 29회(2015) KMO 중등부 1차 7번 }\\\\\n    답 : \\\\\n    %\\import{images}{q04_01}"
+    },
+    {
+      "id": "025",
+      "filename": "025.tex",
+      "source_file": "Problem Sets/contents/quiz04.tex",
+      "source": "",
+      "answer": "144",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 144 \\\\"
+    },
+    {
+      "id": "026",
+      "filename": "026.tex",
+      "source_file": "Problem Sets/contents/quiz04.tex",
+      "source": "38회(2024) KMO 중등부 1차 7번",
+      "answer": "864",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 38회(2024) KMO 중등부 1차 7번 }\\\\\n    답 : 864\\\\"
+    },
+    {
+      "id": "027",
+      "filename": "027.tex",
+      "source_file": "Problem Sets/contents/quiz04.tex",
+      "source": "36회(2022) KMO 중등부 1차 8번",
+      "answer": "39",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 36회(2022) KMO 중등부 1차 8번 } 36회 문제 배열은 난이도 순이 아니었다. 6점\\\\\n    답 : 39 \\\\"
+    },
+    {
+      "id": "028",
+      "filename": "028.tex",
+      "source_file": "Problem Sets/contents/quiz05.tex",
+      "source": "38회(2024) KMO 중등부 1차 1번",
+      "answer": "72",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 38회(2024) KMO 중등부 1차 1번 }\\\\\n    답 : 72 \\\\"
+    },
+    {
+      "id": "029",
+      "filename": "029.tex",
+      "source_file": "Problem Sets/contents/quiz05.tex",
+      "source": "36회(2022) KMO 중등부 1차 17번",
+      "answer": "17",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 36회(2022) KMO 중등부 1차 17번 } 36회는 난이도가 순서대로 높아지지 않았다. 이 문제는 5점\\\\\n    답 : 17 \\\\\n    %\\import{images}{q04_01}"
+    },
+    {
+      "id": "030",
+      "filename": "030.tex",
+      "source_file": "Problem Sets/contents/quiz05.tex",
+      "source": "29회(2015) KMO 중등부 1차 11번",
+      "answer": "35",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 29회(2015) KMO 중등부 1차 11번 }\\\\\n    답 : 35 \\\\"
+    },
+    {
+      "id": "031",
+      "filename": "031.tex",
+      "source_file": "Problem Sets/contents/quiz05.tex",
+      "source": "38회(2024) KMO 중등부 1차 20번",
+      "answer": "512\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 38회(2024) KMO 중등부 1차 20번 }\\\\\n    답 : 512\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "032",
+      "filename": "032.tex",
+      "source_file": "Problem Sets/contents/quiz05.tex",
+      "source": "30회(2016) KMO 중등부 1차 16번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 30회(2016) KMO 중등부 1차 16번 }\\\\"
+    },
+    {
+      "id": "033",
+      "filename": "033.tex",
+      "source_file": "Problem Sets/contents/quiz06.tex",
+      "source": "34회(2021) KMO 중등부 1차 1번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 34회(2021) KMO 중등부 1차 1번 } \\\\"
+    },
+    {
+      "id": "034",
+      "filename": "034.tex",
+      "source_file": "Problem Sets/contents/quiz06.tex",
+      "source": "23년 올림피아드 5회 11번",
+      "answer": "20",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 23년 올림피아드 5회 11번 }\\\\\n    답 : 20\\\\"
+    },
+    {
+      "id": "035",
+      "filename": "035.tex",
+      "source_file": "Problem Sets/contents/quiz06.tex",
+      "source": "35회(2021) KMO 중등부 1차 15번",
+      "answer": "72",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 35회(2021) KMO 중등부 1차 15번 }\\\\\n    답 : 72\\\\"
+    },
+    {
+      "id": "036",
+      "filename": "036.tex",
+      "source_file": "Problem Sets/contents/quiz06.tex",
+      "source": "29회(2015) KMO 중등부 1차 15번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 29회(2015) KMO 중등부 1차 15번 }\\\\\n    답 : \\\\"
+    },
+    {
+      "id": "037",
+      "filename": "037.tex",
+      "source_file": "Problem Sets/contents/quiz06.tex",
+      "source": "멍청이 Trauma가 못 푼 문제...",
+      "answer": "20",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 20회(2016) KMO 중등 1차 20번  }\\\\\n    답 : 20\\\\"
+    },
+    {
+      "id": "038",
+      "filename": "038.tex",
+      "source_file": "Problem Sets/contents/quiz07.tex",
+      "source": "35회(2021) KMO 중등부 1차 5번",
+      "answer": "132",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 35회(2021) KMO 중등부 1차 5번 } \\\\\n    답 : 132\\\\"
+    },
+    {
+      "id": "039",
+      "filename": "039.tex",
+      "source_file": "Problem Sets/contents/quiz07.tex",
+      "source": "26회(2012) KMO 중등부 1차 4번",
+      "answer": "5",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 26회(2012) KMO 중등부 1차 4번 } \\\\\n    답 : 5\\\\"
+    },
+    {
+      "id": "040",
+      "filename": "040.tex",
+      "source_file": "Problem Sets/contents/quiz07.tex",
+      "source": "36회(2022) KMO 중등부 1차 7번",
+      "answer": "40",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 36회(2022) KMO 중등부 1차 7번 } \\\\\n    답 : 40\\\\"
+    },
+    {
+      "id": "041",
+      "filename": "041.tex",
+      "source_file": "Problem Sets/contents/quiz07.tex",
+      "source": "13회 내부 모의고사 10번",
+      "answer": "520",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 13회 내부 모의고사 10번 } \\\\\n    답 : 520\\\\"
+    },
+    {
+      "id": "042",
+      "filename": "042.tex",
+      "source_file": "Problem Sets/contents/quiz07.tex",
+      "source": "26회(2012) KMO 중등부 1차 19번",
+      "answer": "45",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 26회(2012) KMO 중등부 1차 19번 }\\\\\n    답 : 45 \\\\"
+    },
+    {
+      "id": "043",
+      "filename": "043.tex",
+      "source_file": "Problem Sets/contents/quiz08.tex",
+      "source": "26회(2012) KMO 중등부 1차 8번",
+      "answer": "275",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 26회(2012) KMO 중등부 1차 8번 }\\\\\n    답 : 275\\\\"
+    },
+    {
+      "id": "044",
+      "filename": "044.tex",
+      "source_file": "Problem Sets/contents/quiz08.tex",
+      "source": "",
+      "answer": "45",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 45"
+    },
+    {
+      "id": "045",
+      "filename": "045.tex",
+      "source_file": "Problem Sets/contents/quiz08.tex",
+      "source": "25회(2011) KMO 중등부 1차 10번",
+      "answer": "625\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 625\n    %\\import{images}{25_10}"
+    },
+    {
+      "id": "046",
+      "filename": "046.tex",
+      "source_file": "Problem Sets/contents/quiz08.tex",
+      "source": "",
+      "answer": "80",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 80\\\\"
+    },
+    {
+      "id": "047",
+      "filename": "047.tex",
+      "source_file": "Problem Sets/contents/quiz08.tex",
+      "source": "38회(2024) KMO 중등부 1차 20번",
+      "answer": "512",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 512"
+    },
+    {
+      "id": "048",
+      "filename": "048.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "049",
+      "filename": "049.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "32회 KMO 중등부 19번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{32회 KMO 중등부 19번 }\\\\"
+    },
+    {
+      "id": "050",
+      "filename": "050.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "37회 KMO 중등부 2차 2번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "051",
+      "filename": "051.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "",
+      "answer": "45\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 45\n    %\\import{images}{25_1}"
+    },
+    {
+      "id": "052",
+      "filename": "052.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "38회(2024) KMO 중등부 1차 11번",
+      "answer": "820",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 820\n\\tikzmath {   \n    \\Len = 20; \\myRatio = 0.3; \\opac = 0.7;\n    \\b=-150; \\c=-30; \\a=130;    \n}\n\\begin{center} \n    \\begin{tikzpicture}[scale=0.4]\n        \\path(0,0) coordinate (O) circle(\\Len);\n        %\\draw (O) node[below] {$O$} circle(1pt);\n        \\foreach \\i / \\j / \\name / \\pos in {0/\\Len/A/135, 0/0/B/-135, \\Len/0/C/-45, \\Len/\\Len/D/45}{\n            \\coordinate[label=\\pos:$\\name$] (\\name) at (\\i-\\Len/2,\\j-\\Len/2);\n        }\n        \\draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;\n\n        \\draw (0-\\Len/2,\\Len/4) coordinate (P) node[left] {$P$} -- (D);  \n        \\coordinate (H) at ($(P)!(A)!(D)$);\n        \\draw (H) node[below right]{$H$} -- (A);\n\n        \\draw[blue, thick] (\\Len/4-\\Len/2,\\Len-\\Len/2) \n            coordinate (Q) node[above] {$Q$} -- (C)\n            -- (H) -- cycle; \n    \\end{tikzpicture} \n\\end{center}"
+    },
+    {
+      "id": "053",
+      "filename": "053.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "25회(2011) KMO 중등부 1차 10번",
+      "answer": "625",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 625"
+    },
+    {
+      "id": "054",
+      "filename": "054.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "38회(2024) KMO 중등부 1차 20번",
+      "answer": "512",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 512"
+    },
+    {
+      "id": "055",
+      "filename": "055.tex",
+      "source_file": "Problem Sets/contents/영재고01.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "056",
+      "filename": "056.tex",
+      "source_file": "Training_1/contents/area.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "057",
+      "filename": "057.tex",
+      "source_file": "Training_1/contents/area.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "058",
+      "filename": "058.tex",
+      "source_file": "Training_1/contents/area.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "059",
+      "filename": "059.tex",
+      "source_file": "Training_1/contents/area.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "060",
+      "filename": "060.tex",
+      "source_file": "Training_1/contents/area.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "061",
+      "filename": "061.tex",
+      "source_file": "Training_1/contents/incircle.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "062",
+      "filename": "062.tex",
+      "source_file": "Training_1/contents/incircle.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "063",
+      "filename": "063.tex",
+      "source_file": "Training_1/contents/incircle.tex",
+      "source": "36회 KMO 중등부 2차 1번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "064",
+      "filename": "064.tex",
+      "source_file": "Training_1/contents/incircle.tex",
+      "source": "36회(2022) KMO 고등부 2차 6번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "065",
+      "filename": "065.tex",
+      "source_file": "Training_1/contents/incircle.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "066",
+      "filename": "066.tex",
+      "source_file": "Training_1/contents/incircle.tex",
+      "source": "18회(2004) KMO 중등부 2차 4번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "067",
+      "filename": "067.tex",
+      "source_file": "PAS/.ipynb_checkpoints/problem020-checkpoint.tex",
+      "source": "29회(2015) KMO 중등부 1차 1번",
+      "answer": "35",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 35 \\\\"
+    },
+    {
+      "id": "068",
+      "filename": "068.tex",
+      "source_file": "PAS/Pack10.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "069",
+      "filename": "069.tex",
+      "source_file": "PAS/Pack10.tex",
+      "source": "2021학년도 한과영 1-(6) 번, 16회 KMO 3번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "070",
+      "filename": "070.tex",
+      "source_file": "PAS/main.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "071",
+      "filename": "071.tex",
+      "source_file": "PAS/main.tex",
+      "source": "2021학년도 한과영 1-(6) 번, 16회 KMO 3번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "072",
+      "filename": "072.tex",
+      "source_file": "PAS/main.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    %답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "073",
+      "filename": "073.tex",
+      "source_file": "PAS/main.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "074",
+      "filename": "074.tex",
+      "source_file": "PAS/main.tex",
+      "source": "",
+      "answer": "30",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 30\\\\"
+    },
+    {
+      "id": "075",
+      "filename": "075.tex",
+      "source_file": "PAS/main.tex",
+      "source": "",
+      "answer": "80",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 80\\\\"
+    },
+    {
+      "id": "076",
+      "filename": "076.tex",
+      "source_file": "PAS/main.tex",
+      "source": "",
+      "answer": "399",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%fbox{ 37회(2023) KMO 고등부 1차 6번 }\\\\\n        답 : 399\\\\\n        %\\import{images}{h23_6}\n        원주각과 중심각 관계를 생각하면 선분 $AB$와 선분 $DE$가 \n        지름이 빗변인직각삼각형의 나머지 두 변이 된다.\\\\"
+    },
+    {
+      "id": "077",
+      "filename": "077.tex",
+      "source_file": "PAS/main.tex",
+      "source": "28회(2014) KMO 중등부 1차 4번",
+      "answer": "280",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 4번 }\\\\\n    답 : 280\\\\"
+    },
+    {
+      "id": "078",
+      "filename": "078.tex",
+      "source_file": "PAS/main.tex",
+      "source": "28회(2014) KMO 중등부 1차 13번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 13번 }\\\\"
+    },
+    {
+      "id": "079",
+      "filename": "079.tex",
+      "source_file": "PAS/main.tex",
+      "source": "26회(2012) KMO 중등부 1차 19번",
+      "answer": "45",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 26회(2012) KMO 중등부 1차 19번 }\\\\\n    답 : 45 \\\\"
+    },
+    {
+      "id": "080",
+      "filename": "080.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "081",
+      "filename": "081.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "2021학년도 한과영 1-(6) 번, 16회 KMO 3번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "082",
+      "filename": "082.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    %답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "083",
+      "filename": "083.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "084",
+      "filename": "084.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "",
+      "answer": "30",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 30\\\\"
+    },
+    {
+      "id": "085",
+      "filename": "085.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "",
+      "answer": "80",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 80\\\\"
+    },
+    {
+      "id": "086",
+      "filename": "086.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "",
+      "answer": "399",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%fbox{ 37회(2023) KMO 고등부 1차 6번 }\\\\\n        답 : 399\\\\\n        %\\import{images}{h23_6}\n        원주각과 중심각 관계를 생각하면 선분 $AB$와 선분 $DE$가 \n        지름이 빗변인직각삼각형의 나머지 두 변이 된다.\\\\"
+    },
+    {
+      "id": "087",
+      "filename": "087.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "28회(2014) KMO 중등부 1차 4번",
+      "answer": "280",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 4번 }\\\\\n    답 : 280\\\\"
+    },
+    {
+      "id": "088",
+      "filename": "088.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "28회(2014) KMO 중등부 1차 13번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 13번 }\\\\"
+    },
+    {
+      "id": "089",
+      "filename": "089.tex",
+      "source_file": "PAS/main00.tex",
+      "source": "26회(2012) KMO 중등부 1차 19번",
+      "answer": "45",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 26회(2012) KMO 중등부 1차 19번 }\\\\\n    답 : 45 \\\\"
+    },
+    {
+      "id": "090",
+      "filename": "090.tex",
+      "source_file": "PAS/main09.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "091",
+      "filename": "091.tex",
+      "source_file": "PAS/main09.tex",
+      "source": "",
+      "answer": "30",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 30\\\\"
+    },
+    {
+      "id": "092",
+      "filename": "092.tex",
+      "source_file": "PAS/main09.tex",
+      "source": "28회(2014) KMO 중등부 1차 4번",
+      "answer": "280",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 4번 }\\\\\n    답 : 280\\\\"
+    },
+    {
+      "id": "093",
+      "filename": "093.tex",
+      "source_file": "PAS/main09.tex",
+      "source": "28회(2014) KMO 중등부 1차 13번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 13번 }\\\\"
+    },
+    {
+      "id": "094",
+      "filename": "094.tex",
+      "source_file": "PAS/problem020.tex",
+      "source": "29회(2015) KMO 중등부 1차 1번",
+      "answer": "35",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 35 \\\\"
+    },
+    {
+      "id": "095",
+      "filename": "095.tex",
+      "source_file": "PAS/problem021.tex",
+      "source": "",
+      "answer": "35",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 35 \\\\"
+    },
+    {
+      "id": "096",
+      "filename": "096.tex",
+      "source_file": "PAS/problem030.tex",
+      "source": "38회(2024) KMO 중등부 1차 11번",
+      "answer": "820\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 38회(2024) KMO 중등부 1차 11번 }\\\\\n    답 : 820\n    %\\import{images}{38_11}"
+    },
+    {
+      "id": "097",
+      "filename": "097.tex",
+      "source_file": "PAS/relation.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "098",
+      "filename": "098.tex",
+      "source_file": "PAS/relation.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "099",
+      "filename": "099.tex",
+      "source_file": "PAS/relation.tex",
+      "source": "",
+      "answer": "36",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 36 \n    \\import{images}{25_1}"
+    },
+    {
+      "id": "100",
+      "filename": "100.tex",
+      "source_file": "PAS/relation.tex",
+      "source": "29회(2015) KMO 중등부 1차 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "101",
+      "filename": "101.tex",
+      "source_file": "PAS/relation.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "102",
+      "filename": "102.tex",
+      "source_file": "PAS/relation.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "103",
+      "filename": "103.tex",
+      "source_file": "PAS/분해_재구성.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "104",
+      "filename": "104.tex",
+      "source_file": "PAS/분해_재구성.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "105",
+      "filename": "105.tex",
+      "source_file": "PAS/분해_재구성.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "106",
+      "filename": "106.tex",
+      "source_file": "PAS/분해_재구성.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "107",
+      "filename": "107.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_1.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "108",
+      "filename": "108.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_1.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": true,
+      "note": "%\n%"
+    },
+    {
+      "id": "109",
+      "filename": "109.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_2.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "110",
+      "filename": "110.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_2.tex",
+      "source": "2024학년도 경기과학 영재성 검사II 1번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "111",
+      "filename": "111.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_2.tex",
+      "source": "",
+      "answer": "$",
+      "has_tikz": true,
+      "has_solution": true,
+      "note": "%   답 : $\\frac{12}{7}$\n%"
+    },
+    {
+      "id": "112",
+      "filename": "112.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_2.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    %답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "113",
+      "filename": "113.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_2.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "114",
+      "filename": "114.tex",
+      "source_file": "Training_1/0_ParallelFrame/0_bisector_2.tex",
+      "source": "2024학년도 서울과학고등학교 검사1 2번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "115",
+      "filename": "115.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": true,
+      "note": "\\fbox{   }\\\\"
+    },
+    {
+      "id": "116",
+      "filename": "116.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "",
+      "answer": "30",
+      "has_tikz": true,
+      "has_solution": true,
+      "note": "답 : 30\\\\"
+    },
+    {
+      "id": "117",
+      "filename": "117.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "118",
+      "filename": "118.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "33회 KMO 중등부 19번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{33회 KMO 중등부 19번 }\\\\"
+    },
+    {
+      "id": "119",
+      "filename": "119.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "30회 KMO 중등부 1차 8번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{30회 KMO 중등부 1차 8번 }\\\\"
+    },
+    {
+      "id": "120",
+      "filename": "120.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": true,
+      "note": ""
+    },
+    {
+      "id": "121",
+      "filename": "121.tex",
+      "source_file": "Training_1/1_Angle/0_exterior.tex",
+      "source": "33회 KMO 중등부 19번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{33회 KMO 중등부 19번 }\\\\"
+    },
+    {
+      "id": "122",
+      "filename": "122.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "123",
+      "filename": "123.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "124",
+      "filename": "124.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "125",
+      "filename": "125.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "",
+      "answer": "399",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%fbox{ 37회(2023) KMO 고등부 1차 6번 }\\\\\n        답 : 399\\\\\n        %\\import{images}{h23_6}\n        원주각과 중심각 관계를 생각하면 선분 $AB$와 선분 $DE$가 \n        지름이 빗변인직각삼각형의 나머지 두 변이 된다.\\\\"
+    },
+    {
+      "id": "126",
+      "filename": "126.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "31회(2017) KMO 중등부 1차 3번",
+      "answer": "10",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 31회(2017) KMO 중등부 1차 3번 }\\\\\n    답 : 10\\\\"
+    },
+    {
+      "id": "127",
+      "filename": "127.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    답 : 10\\\\"
+    },
+    {
+      "id": "128",
+      "filename": "128.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "",
+      "answer": "399",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%fbox{ 37회(2023) KMO 고등부 1차 6번 }\\\\\n        답 : 399\\\\"
+    },
+    {
+      "id": "129",
+      "filename": "129.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "24학년도 세종영재고 1번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "130",
+      "filename": "130.tex",
+      "source_file": "Training_1/1_Angle/0_inscribed_angle.tex",
+      "source": "24학년도 세종영재고 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "131",
+      "filename": "131.tex",
+      "source_file": "Training_1/1_Angle/central_angle.tex",
+      "source": "26회(2012) KMO 중등부 1차 8번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "132",
+      "filename": "132.tex",
+      "source_file": "Training_1/1_Angle/central_angle.tex",
+      "source": "35회(2021) KMO 중등부 1차 15번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "133",
+      "filename": "133.tex",
+      "source_file": "Training_1/1_Angle/central_angle.tex",
+      "source": "",
+      "answer": "399",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%fbox{ 37회(2023) KMO 고등부 1차 6번 }\\\\\n        답 : 399\\\\"
+    },
+    {
+      "id": "134",
+      "filename": "134.tex",
+      "source_file": "Training_1/1_Angle/central_angle.tex",
+      "source": "25회(2011) KMO 중등부 1차 10번",
+      "answer": "625",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 25회(2011) KMO 중등부 1차 10번 }\\\\\n    답 : 625 \\\\\n    \\import{images}{25_10}"
+    },
+    {
+      "id": "135",
+      "filename": "135.tex",
+      "source_file": "Training_1/1_Angle/central_angle.tex",
+      "source": "24학년도 세종영재고 1번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "136",
+      "filename": "136.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "38회(2024) KMO 중등부 1차 11번",
+      "answer": "820\n%",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%    \\fbox{ 38회(2024) KMO 중등부 1차 11번 }\\\\\n%    답 : 820\n%    \\import{images}{38_11}\n%"
+    },
+    {
+      "id": "137",
+      "filename": "137.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "138",
+      "filename": "138.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "139",
+      "filename": "139.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "140",
+      "filename": "140.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "141",
+      "filename": "141.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "142",
+      "filename": "142.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "31회 KMO 중등부 1차 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "143",
+      "filename": "143.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "144",
+      "filename": "144.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "145",
+      "filename": "145.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "146",
+      "filename": "146.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "37회 KMO 중등부 2차 2번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "147",
+      "filename": "147.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "37회 KMO 중등부 2차 2번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "148",
+      "filename": "148.tex",
+      "source_file": "Training_1/2_circle/1_concyclic.tex",
+      "source": "28회 KMO 중등부 2차 1번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "149",
+      "filename": "149.tex",
+      "source_file": "Training_1/2_circle/1_relation.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "150",
+      "filename": "150.tex",
+      "source_file": "Training_1/2_circle/1_relation.tex",
+      "source": "25회(2011) KMO 중등부 1차 1번",
+      "answer": "36",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 25회(2011) KMO 중등부 1차 1번 }\\\\  1번\n    답 : 36 \\\\\n    \\import{images}{25_1}"
+    },
+    {
+      "id": "151",
+      "filename": "151.tex",
+      "source_file": "Training_1/2_circle/1_relation.tex",
+      "source": "29회(2015) KMO 중등부 1차 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 29회(2015) KMO 중등부 1차 7번 }\\\\"
+    },
+    {
+      "id": "152",
+      "filename": "152.tex",
+      "source_file": "Training_1/2_circle/1_relation.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "153",
+      "filename": "153.tex",
+      "source_file": "Training_1/2_circle/4_tangent_chord.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "154",
+      "filename": "154.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "35회(2021) KMO 중등부 1차 4번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "155",
+      "filename": "155.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "156",
+      "filename": "156.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "공통수학2 - 절대등급 22쪽 8번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "157",
+      "filename": "157.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "34회(2020) KMO 중등부 1차 19번",
+      "answer": "13",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 13\\\\ $\\frac 5 8$에서 $p=8 \\mybreak q=5$"
+    },
+    {
+      "id": "158",
+      "filename": "158.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "159",
+      "filename": "159.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "2022학년도 경기영재고 7번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "160",
+      "filename": "160.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "34회(2020) KMO 중등부 1차 11번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "161",
+      "filename": "161.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "162",
+      "filename": "162.tex",
+      "source_file": "Training_1/3_technique/1_midpoint.tex",
+      "source": "30회(2016) KMO 중등부 1차 16번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "163",
+      "filename": "163.tex",
+      "source_file": "Training_1/3_technique/2_분해재구성_넓이.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "164",
+      "filename": "164.tex",
+      "source_file": "Training_1/3_technique/2_분해재구성_넓이.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "165",
+      "filename": "165.tex",
+      "source_file": "Training_1/3_technique/2_분해재구성_넓이.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "166",
+      "filename": "166.tex",
+      "source_file": "Training_1/3_technique/2_분해재구성_넓이.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "167",
+      "filename": "167.tex",
+      "source_file": "Training_1/Book1.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "168",
+      "filename": "168.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "169",
+      "filename": "169.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "170",
+      "filename": "170.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "171",
+      "filename": "171.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\begin{center}\n    \\begin{tikzpicture}\n      \\draw (-1,0) coordinate (A) circle(0.5pt) node[left] {$A$};\n      \\draw (1,0) coordinate (B) circle(0.5pt) node[right] {$B$};\n    \n      \\draw [name path=A--B] (A) -- (B);\n      \\node (D) [name path=D,draw,circle through=(B),label=left:$D$] at (A) {};\n      \\node (E) [name path=E,draw,circle through=(A),label=right:$E$] at (B) {};\n      \\path [name intersections={of=D and E, by={[label=above:$C$]C,[label=below:$C'$]C'}}]; \n      \\draw [name path=C--C',red] (C) -- (C');\n      \\path [name intersections={of=A--B and C--C',by=F}];\n      \\node [fill=red,inner sep=1pt,label=-45:$F$] at (F) {};\n    \\end{tikzpicture}\n    \\end{center}\n  trauma 미주 테스트!"
+    },
+    {
+      "id": "172",
+      "filename": "172.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "173",
+      "filename": "173.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "174",
+      "filename": "174.tex",
+      "source_file": "tkz_practice/tikz_과제.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "175",
+      "filename": "175.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "176",
+      "filename": "176.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "2021학년도 한과영 1-(6) 번, 16회 KMO 3번",
+      "answer": "",
+      "has_tikz": true,
+      "has_solution": false,
+      "note": ""
+    },
+    {
+      "id": "177",
+      "filename": "177.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    %답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "178",
+      "filename": "178.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "34회(2020) KMO 중등부 1차 1번",
+      "answer": "10\n    %",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 34회(2020) KMO 중등부 1차 1번 }\\\\\n    답 : 10\n    %\\import{images}{38_20}"
+    },
+    {
+      "id": "179",
+      "filename": "179.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "",
+      "answer": "30",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 30\\\\"
+    },
+    {
+      "id": "180",
+      "filename": "180.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "",
+      "answer": "80",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "답 : 80\\\\"
+    },
+    {
+      "id": "181",
+      "filename": "181.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "",
+      "answer": "399",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "%fbox{ 37회(2023) KMO 고등부 1차 6번 }\\\\\n        답 : 399\\\\\n        %\\import{images}{h23_6}\n        원주각과 중심각 관계를 생각하면 선분 $AB$와 선분 $DE$가 \n        지름이 빗변인직각삼각형의 나머지 두 변이 된다.\\\\"
+    },
+    {
+      "id": "182",
+      "filename": "182.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "28회(2014) KMO 중등부 1차 4번",
+      "answer": "280",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 4번 }\\\\\n    답 : 280\\\\"
+    },
+    {
+      "id": "183",
+      "filename": "183.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "28회(2014) KMO 중등부 1차 13번",
+      "answer": "",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 28회(2014) KMO 중등부 1차 13번 }\\\\"
+    },
+    {
+      "id": "184",
+      "filename": "184.tex",
+      "source_file": "웹앱백업_claude/main.tex",
+      "source": "26회(2012) KMO 중등부 1차 19번",
+      "answer": "45",
+      "has_tikz": false,
+      "has_solution": true,
+      "note": "\\fbox{ 26회(2012) KMO 중등부 1차 19번 }\\\\\n    답 : 45 \\\\"
+    }
+  ]
+}
