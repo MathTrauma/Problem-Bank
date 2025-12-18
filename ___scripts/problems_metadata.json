@@ -1674,7 +1674,7 @@
     {
       "id": "168",
       "filename": "168.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "main.tex",
       "source": "",
       "answer": "",
       "has_tikz": false,
@@ -1684,7 +1684,7 @@
     {
       "id": "169",
       "filename": "169.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "problem_macros.tex",
       "source": "",
       "answer": "",
       "has_tikz": false,
@@ -1694,7 +1694,7 @@
     {
       "id": "170",
       "filename": "170.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "problem_macros.tex",
       "source": "",
       "answer": "",
       "has_tikz": false,
@@ -1704,17 +1704,17 @@
     {
       "id": "171",
       "filename": "171.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "problem_macros.tex",
       "source": "",
       "answer": "",
       "has_tikz": false,
-      "has_solution": true,
-      "note": "\\begin{center}\n    \\begin{tikzpicture}\n      \\draw (-1,0) coordinate (A) circle(0.5pt) node[left] {$A$};\n      \\draw (1,0) coordinate (B) circle(0.5pt) node[right] {$B$};\n    \n      \\draw [name path=A--B] (A) -- (B);\n      \\node (D) [name path=D,draw,circle through=(B),label=left:$D$] at (A) {};\n      \\node (E) [name path=E,draw,circle through=(A),label=right:$E$] at (B) {};\n      \\path [name intersections={of=D and E, by={[label=above:$C$]C,[label=below:$C'$]C'}}]; \n      \\draw [name path=C--C',red] (C) -- (C');\n      \\path [name intersections={of=A--B and C--C',by=F}];\n      \\node [fill=red,inner sep=1pt,label=-45:$F$] at (F) {};\n    \\end{tikzpicture}\n    \\end{center}\n  trauma 미주 테스트!"
+      "has_solution": false,
+      "note": ""
     },
     {
       "id": "172",
       "filename": "172.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "problems_1_5_with_sol.tex",
       "source": "",
       "answer": "",
       "has_tikz": false,
@@ -1724,20 +1724,20 @@
     {
       "id": "173",
       "filename": "173.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "problems_1_5_with_sol.tex",
       "source": "",
       "answer": "",
-      "has_tikz": true,
+      "has_tikz": false,
       "has_solution": false,
       "note": ""
     },
     {
       "id": "174",
       "filename": "174.tex",
-      "source_file": "tkz_practice/tikz_과제.tex",
+      "source_file": "problems_1_5_with_sol.tex",
       "source": "",
       "answer": "",
-      "has_tikz": true,
+      "has_tikz": false,
       "has_solution": false,
       "note": ""
     },

@@ -345,17 +345,90 @@
             margin-bottom: 5px;
         }
 
-        /* 풀이 표시 */
-        .solution-view {
-            line-height: 2.0;
-            font-size: 17px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 4px;
+        /* 그림 폴드아웃 버튼 */
+        .figure-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .solution-view p {
-            margin-bottom: 15px;
+        .figure-toggle:hover {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-color: #2196F3;
+            transform: scale(1.01);
+        }
+
+        .figure-toggle-icon {
+            width: 50px;
+            height: 50px;
+            background: #2196F3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .figure-toggle:hover .figure-toggle-icon {
+            background: #1976D2;
+            box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+            transform: scale(1.1);
+        }
+
+        .figure-toggle-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            margin-left: 3px;
+        }
+
+        .figure-toggle.expanded .figure-toggle-icon svg {
+            transform: rotate(90deg);
+            margin-left: 0;
+        }
+
+        .figure-toggle-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .figure-toggle:hover .figure-toggle-text {
+            color: #1976D2;
+        }
+
+        .figure-content {
+            display: none;
+            margin: 15px 0;
+            padding: 20px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .figure-content.show {
+            display: block;
+        }
+
+        .figure-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .empty-state {
@@ -466,7 +539,6 @@
                 <h2 id="currentProblemTitle">문제를 선택하세요</h2>
                 <div class="tabs">
                     <button class="tab active" data-tab="view">문제 보기</button>
-                    <button class="tab" data-tab="solution">풀이</button>
                     <button class="tab" data-tab="metadata">메타데이터</button>
                 </div>
             </div>
@@ -479,13 +551,6 @@
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                         </svg>
                         <p>왼쪽 목록에서 문제를 선택하세요</p>
-                    </div>
-                </div>
-
-                <!-- 풀이 보기 탭 -->
-                <div class="tab-content" id="tab-solution">
-                    <div class="empty-state">
-                        <p>문제를 선택하세요</p>
                     </div>
                 </div>
 
@@ -543,10 +608,10 @@
         function classifyProblem(problem) {
             const source = problem.source || '';
 
-            // KMO 중등부 1차: Extract year from "38회(2024) KMO 중등부 1차 N번"
-            const kmoMatch = source.match(/\d+회\((\d{4})\)\s*KMO\s*중등부\s*1차/);
+            // KMO 중등부 1차: Extract year from "제38회(2024) KMO 중등부 1차 N번" or "38회(2024) KMO 중등부 1차 N번"
+            const kmoMatch = source.match(/제?(\d+)회\((\d{4})\)\s*KMO\s*중등부\s*1차/);
             if (kmoMatch) {
-                return { category: 'kmo_middle_1', year: kmoMatch[1], problem };
+                return { category: 'kmo_middle_1', year: kmoMatch[2], problem };
             }
 
             // Empty source
@@ -833,20 +898,19 @@
             // 문제 내용 표시
             const viewTab = document.getElementById('tab-view');
             if (problem.content) {
-                viewTab.innerHTML = `<div class="problem-content">${convertLatexToHtml(problem.content)}</div>`;
+                let contentHtml = convertLatexToHtml(problem.content);
+
+                // solution에서 SVG 마커 추출하여 문제 아래에 추가
+                if (problem.solution) {
+                    const svgButtons = extractSvgButtons(problem.solution);
+                    if (svgButtons) {
+                        contentHtml += svgButtons;
+                    }
+                }
+
+                viewTab.innerHTML = `<div class="problem-content">${contentHtml}</div>`;
             } else {
                 viewTab.innerHTML = '<div class="empty-state"><p>문제 내용이 없습니다.</p></div>';
-            }
-
-            // 풀이 표시
-            const solutionTab = document.getElementById('tab-solution');
-            if (problem.solution) {
-                solutionTab.innerHTML = `
-                    <h3 style="margin-bottom: 15px;">풀이</h3>
-                    <div class="solution-view">${convertLatexToHtml(problem.solution)}</div>
-                `;
-            } else {
-                solutionTab.innerHTML = '<div class="empty-state"><p>풀이가 없습니다.</p></div>';
             }
 
             // 메타데이터 표시
@@ -900,8 +964,47 @@
 
             // MathJax 렌더링
             if (window.MathJax) {
-                MathJax.typesetPromise([viewTab, solutionTab]);
+                MathJax.typesetPromise([viewTab]);
             }
+
+            // 폴드아웃 버튼 이벤트 설정
+            setupFigureToggles();
+        }
+
+        // solution에서 SVG 마커 추출하여 폴드아웃 버튼 HTML 생성
+        function extractSvgButtons(solution) {
+            if (!solution) return '';
+
+            const svgMarkers = [];
+            const regex = /%\s*\[SVG:\s*([^\]]+)\]/g;
+            let match;
+
+            while ((match = regex.exec(solution)) !== null) {
+                svgMarkers.push(match[1].trim());
+            }
+
+            if (svgMarkers.length === 0) return '';
+
+            let buttonsHtml = '';
+            svgMarkers.forEach((filename, index) => {
+                const svgPath = `data/svg/${filename}`;
+                const label = svgMarkers.length > 1 ? `그림 ${index + 1} 보기` : '그림 보기';
+                buttonsHtml += `
+                    <div class="figure-toggle" data-svg="${svgPath}">
+                        <div class="figure-toggle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="figure-toggle-text">${label}</span>
+                    </div>
+                    <div class="figure-content">
+                        <img src="${svgPath}" alt="그림" loading="lazy">
+                    </div>
+                `;
+            });
+
+            return buttonsHtml;
         }
 
         // LaTeX를 HTML로 변환 (수식 보호)
@@ -978,7 +1081,46 @@
             // 빈 단락 제거
             html = html.replace(/<p>\s*<\/p>/g, '');
 
+            // 7. SVG 마커를 폴드아웃 버튼으로 변환
+            // % [SVG: filename.svg] 형식 처리
+            html = html.replace(/%\s*\[SVG:\s*([^\]]+)\]/g, (match, filename) => {
+                const svgPath = `data/svg/${filename.trim()}`;
+                return `
+                    <div class="figure-toggle" data-svg="${svgPath}">
+                        <div class="figure-toggle-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="figure-toggle-text">그림 보기</span>
+                    </div>
+                    <div class="figure-content">
+                        <img src="${svgPath}" alt="그림" loading="lazy">
+                    </div>
+                `;
+            });
+
             return html;
+        }
+
+        // 폴드아웃 버튼 이벤트 설정
+        function setupFigureToggles() {
+            document.querySelectorAll('.figure-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isExpanded = content.classList.contains('show');
+
+                    if (isExpanded) {
+                        content.classList.remove('show');
+                        this.classList.remove('expanded');
+                        this.querySelector('.figure-toggle-text').textContent = '그림 보기';
+                    } else {
+                        content.classList.add('show');
+                        this.classList.add('expanded');
+                        this.querySelector('.figure-toggle-text').textContent = '그림 숨기기';
+                    }
+                });
+            });
         }
 
         // 탭 설정
