@@ -681,8 +681,8 @@
                 contentDiv.className = 'folder-content';
 
                 if (hasSubFolders) {
-                    // Render year folders
-                    Object.keys(category.folders).forEach(year => {
+                    // Render year folders (최신 연도 먼저)
+                    Object.keys(category.folders).sort((a, b) => b - a).forEach(year => {
                         renderYearFolder(contentDiv, categoryId, year, category.folders[year]);
                     });
                 } else {
@@ -765,7 +765,7 @@
                 categoryHeader.textContent = `${classified.kmo_middle_1.label} (${classified.kmo_middle_1.count})`;
                 container.appendChild(categoryHeader);
 
-                Object.keys(classified.kmo_middle_1.folders).forEach(year => {
+                Object.keys(classified.kmo_middle_1.folders).sort((a, b) => b - a).forEach(year => {
                     const yearFolder = classified.kmo_middle_1.folders[year];
                     const yearHeader = document.createElement('div');
                     yearHeader.className = 'search-year-header';
