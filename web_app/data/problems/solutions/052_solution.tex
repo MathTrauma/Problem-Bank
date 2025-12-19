@@ -1,0 +1,28 @@
+% Solution for Problem 052
+% Source: 38회(2024) KMO 중등부 1차 11번
+% Original file: Problem Sets/contents/영재고01.tex
+
+
+    답 : 820
+\tikzmath {   
+    \Len = 20; \myRatio = 0.3; \opac = 0.7;
+    \b=-150; \c=-30; \a=130;    
+}
+\begin{center} 
+    \begin{tikzpicture}[scale=0.4]
+        \path(0,0) coordinate (O) circle(\Len);
+        %\draw (O) node[below] {$O$} circle(1pt);
+        \foreach \i / \j / \name / \pos in {0/\Len/A/135, 0/0/B/-135, \Len/0/C/-45, \Len/\Len/D/45}{
+            \coordinate[label=\pos:$\name$] (\name) at (\i-\Len/2,\j-\Len/2);
+        }
+        \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+
+        \draw (0-\Len/2,\Len/4) coordinate (P) node[left] {$P$} -- (D);  
+        \coordinate (H) at ($(P)!(A)!(D)$);
+        \draw (H) node[below right]{$H$} -- (A);
+
+        \draw[blue, thick] (\Len/4-\Len/2,\Len-\Len/2) 
+            coordinate (Q) node[above] {$Q$} -- (C)
+            -- (H) -- cycle; 
+    \end{tikzpicture} 
+\end{center}

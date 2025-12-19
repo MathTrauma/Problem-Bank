@@ -127,9 +127,15 @@ ___scripts/test_*.py
 # -----------------------------------------------------------------------------
 # web_app - 빌드 결과물 및 임시 파일
 # -----------------------------------------------------------------------------
-# GitHub Actions에서 자동 생성됨
-web_app/data/
+# 번들 파일은 빌드시 생성됨
 web_app/problems_bundle.json
+
+# web_app/data/ 내의 특정 폴더만 추적
+web_app/data/*
+!web_app/data/problems/
+!web_app/data/problems/**
+!web_app/data/svg/
+!web_app/data/svg/**
 
 # Flask 앱 관련 (로컬 개발용)
 web_app/app.py

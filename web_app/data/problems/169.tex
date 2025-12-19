@@ -1,0 +1,16 @@
+% Problem ID: 169
+% Original file: problem_macros.tex
+
+%
+        \edef\filename{problems/\ifnum\n<10 00\n\else\ifnum\n<100 0\n\else\n\fi\fi.tex}%
+        \IfFileExists{\filename}{%
+            \input{\filename}%
+        }{%
+            \PackageWarning{problems}{File \filename\space not found!}%
+        }%
+    }%
+}
+
+% 개별 문제 입력 (자동 번호 증가)
+\newcommand{\inputproblem}[1]{%
+    % #1: 문제 번호

@@ -1,0 +1,23 @@
+% Problem ID: 168
+% Original file: main.tex
+
+│
+%         \file_input:n {problems/\int_compare:nNnTF {##1} < {10} {00}                                                           │
+%                                   {\int_compare:nNnTF {##1} < {100} {0} {}}                                                    │
+%                                   \int_to_arabic:n{##1}.tex}                                                                   │
+%     }                                                                                                                          │
+% }                                                                                                                              │
+% \ExplSyntaxOff
+
+
+\newenvironment{problem}
+{ \noindent \textbf{시작:} } % 시작 시 '시작:'을 굵게 표시
+{ \hfill } % 끝날 때 오른쪽 끝에 '끝!!' 표시 후 줄바꿈
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+\input{web_app/data/problems/245.tex}
+\input{web_app/data/problems/solutions/245_solution.tex}

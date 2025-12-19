@@ -1,0 +1,22 @@
+% Problem ID: 171
+% Original file: problem_macros.tex
+
+%
+    \edef\probnum{\the\numexpr#1\relax}%
+    \edef\probfile{problems/\ifnum\probnum<10 00\probnum\else\ifnum\probnum<100 0\probnum\else\probnum\fi\fi.tex}%
+    \edef\solfile{problems/solutions/\ifnum\probnum<10 00\probnum\else\ifnum\probnum<100 0\probnum\else\probnum\fi\fi_solution.tex}%
+    \input{\probfile}%
+    \IfFileExists{\solfile}{%
+        \vspace{1em}
+        \textbf{풀이:}\\
+        \input{\solfile}%
+    }{}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 사용 예제:
+%
+% \inputproblems{1}{20}           % 1-20번 문제
+% \inputproblem{15}               % 15번 문제만
+% \inputproblemwithsol{10}        % 10번 문제와 풀이
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

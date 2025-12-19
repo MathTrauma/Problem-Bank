@@ -1,0 +1,469 @@
+/* 기하 문제 관리 시스템 - 메인 스타일시트 */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f5f5f5;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 왼쪽 사이드바 - 문제 목록 */
+.sidebar {
+    width: 350px;
+    background: white;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #2196F3;
+    color: white;
+}
+
+.sidebar-header h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.stats {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.search-box {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.problem-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Folder structure */
+.folder-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.category-folder {
+    background: #fafafa;
+}
+
+.year-folder {
+    background: #ffffff;
+}
+
+.folder-header {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.folder-header:hover {
+    background: #f0f0f0;
+}
+
+.folder-icon {
+    font-size: 10px;
+    color: #666;
+    width: 12px;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.folder-icon.expanded {
+    transform: rotate(0deg);
+}
+
+.folder-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    flex: 1;
+}
+
+.folder-count {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+}
+
+.folder-content {
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 2000px;
+    }
+}
+
+/* Search mode headers */
+.search-category-header {
+    padding: 10px 15px;
+    background: #e3f2fd;
+    font-weight: 600;
+    font-size: 13px;
+    color: #1976D2;
+    border-bottom: 1px solid #bbdefb;
+}
+
+.search-year-header {
+    padding: 8px 15px;
+    padding-left: 35px;
+    background: #f5f5f5;
+    font-weight: 500;
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Problem items */
+.problem-item {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.problem-item:hover {
+    background: #f8f8f8;
+}
+
+.problem-item.active {
+    background: #e3f2fd;
+    border-left: 3px solid #2196F3;
+}
+
+.problem-id {
+    font-weight: bold;
+    color: #2196F3;
+    margin-bottom: 5px;
+}
+
+.problem-preview {
+    font-size: 13px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.problem-badges {
+    margin-top: 5px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.badge-tikz {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.badge-solution {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.badge-source {
+    background: #e0f2f1;
+    color: #00695c;
+}
+
+/* 오른쪽 메인 영역 */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.main-header {
+    padding: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    background: white;
+}
+
+.main-header h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    padding: 8px 16px;
+    border: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.tab.active {
+    background: #2196F3;
+    color: white;
+}
+
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 문제 보기 탭 */
+.problem-content {
+    line-height: 2.0;
+    font-size: 17px;
+}
+
+.problem-content p {
+    margin-bottom: 15px;
+}
+
+.problem-box {
+    padding: 15px;
+    background: #f9f9f9;
+    border-left: 3px solid #2196F3;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.figure {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+/* MathJax 수식 스타일 */
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* 메타데이터 표시 */
+.metadata-view {
+    line-height: 1.8;
+}
+
+.metadata-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.metadata-item strong {
+    display: block;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* 그림 폴드아웃 버튼 */
+.figure-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px dashed #dee2e6;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.figure-toggle:hover {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-color: #2196F3;
+    transform: scale(1.01);
+}
+
+.figure-toggle-icon {
+    width: 50px;
+    height: 50px;
+    background: #2196F3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    transition: all 0.3s ease;
+}
+
+.figure-toggle:hover .figure-toggle-icon {
+    background: #1976D2;
+    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+    transform: scale(1.1);
+}
+
+.figure-toggle-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    margin-left: 3px;
+}
+
+.figure-toggle.expanded .figure-toggle-icon svg {
+    transform: rotate(90deg);
+    margin-left: 0;
+}
+
+.figure-toggle-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.figure-toggle:hover .figure-toggle-text {
+    color: #1976D2;
+}
+
+.figure-content {
+    display: none;
+    margin: 15px 0;
+    padding: 20px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.figure-content.show {
+    display: block;
+}
+
+.figure-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Empty state & Loading */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: #323232;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+/* Floating Navigation */
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+
+.floating-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    transition: all 0.3s ease;
+}
+
+.floating-nav a:hover {
+    background: #1976D2;
+    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+    transform: translateY(-2px);
+}
+
+.floating-nav svg {
+    width: 18px;
+    height: 18px;
+}

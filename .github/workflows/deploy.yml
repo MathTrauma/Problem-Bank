@@ -5,8 +5,6 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'problems/**'
-      - '___scripts/problems_metadata.json'
       - 'web_app/**'
       - '.github/workflows/deploy.yml'
 
@@ -37,14 +35,6 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Copy data to web_app
-      run: |
-        echo "Copying problems data..."
-        mkdir -p web_app/data
-        cp -r problems web_app/data/
-        cp ___scripts/problems_metadata.json web_app/data/
-        echo "✅ Data copied successfully"
-
     - name: Build data bundle
       run: |
         cd web_app
@@ -56,12 +46,24 @@ jobs:
     - name: Prepare deployment files
       run: |
         echo "Preparing files for deployment..."
-        mkdir -p _site
+        mkdir -p _site/css _site/js _site/data/svg
+
+        # HTML 및 번들
         cp web_app/index.html _site/
         cp web_app/problems_bundle.json _site/
+
+        # CSS 및 JS
+        cp -r web_app/css/* _site/css/
+        cp -r web_app/js/* _site/js/
+
+        # SVG 파일들
+        if [ -d "web_app/data/svg" ] && [ "$(ls -A web_app/data/svg 2>/dev/null)" ]; then
+          cp -r web_app/data/svg/* _site/data/svg/
+        fi
+
         echo "✅ Deployment files ready"
         echo "Files to deploy:"
-        ls -lh _site/
+        find _site -type f | head -20
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,12 @@
+% Problem ID: 170
+% Original file: problem_macros.tex
+
+%
+    \edef\probnum{\the\numexpr#1\relax}%
+    \edef\filename{problems/\ifnum\probnum<10 00\probnum\else\ifnum\probnum<100 0\probnum\else\probnum\fi\fi.tex}%
+    \input{\filename}%
+}
+
+% solution 포함 문제 입력
+\newcommand{\inputproblemwithsol}[1]{%
+    % #1: 문제 번호

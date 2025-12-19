@@ -1,0 +1,47 @@
+
+
+두 가지 예시.
+
+첫번째
+\begin{tikzpicture}[scale=1.2,semithick,help lines/.style={thin,draw=black!50}]
+    \tkzDefPoint(-2,0){B}        \tkzLabelPoint[below](B){$ B$}       
+    \tkzDefPoint(2,0){C}        \tkzLabelPoint[below](C){$ C$}  
+    \tkzDefPoint(1,3){A}      \tkzLabelPoint[above](A){$ A$}  
+    \tkzDefPoint(0,0){M}      \tkzLabelPoint[below](M){$ M$}  
+
+    \tkzDefBarycentricPoint(A=1,M=1)   \tkzGetPoint{N} 
+    \tkzLabelPoint[below right](N){$ N$} 
+
+    \tkzInterLL(B,N)(A,C)       \tkzGetPoint{D}     
+    \tkzLabelPoint[right, xshift=0.1cm](D){$ D$}
+
+    \tkzDefLine[parallel=through A](B,C)    \tkzGetPoint{X}
+    \tkzInterLL(A,X)(B,N)   \tkzGetPoint{E}
+    \tkzLabelPoint[above](E){$ E$}
+
+    \tkzDrawSegments[semithick](A,B C,A B,D A,M D,E B,C A,E)
+    \tkzMarkSegments[mark=arrow, size=3pt](B,C A,E)
+
+\end{tikzpicture}
+
+
+두번째
+\begin{tikzpicture}[scale=1.2,semithick,help lines/.style={thin,draw=black!50}]
+    \tkzDefPoint(-2,0){B}        \tkzLabelPoint[below](B){$ B$}       
+    \tkzDefPoint(2,0){C}        \tkzLabelPoint[below](C){$ C$}  
+    \tkzDefPoint(1,3){A}      \tkzLabelPoint[above](A){$ A$}  
+    \tkzDefPoint(0,0){M}      \tkzLabelPoint[below](M){$ M$}  
+
+    \tkzDefBarycentricPoint(A=1,M=1)   \tkzGetPoint{N} 
+    \tkzLabelPoint[below right](N){$ N$} 
+
+    \tkzInterLL(B,N)(A,C)       \tkzGetPoint{D}     
+    \tkzLabelPoint[right, xshift=0.1cm](D){$ D$}
+
+    \tkzDefLine[parallel=through M](B,N)    \tkzGetPoint{X}
+    \tkzInterLL(M,X)(A,C)       \tkzGetPoint{E}
+    \tkzLabelPoint[right](E){$ E$}
+
+    \tkzDrawSegments[semithick](A,B B,C A,C A,M B,D M,E)
+    
+\end{tikzpicture}
