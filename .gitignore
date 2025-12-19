@@ -130,12 +130,13 @@ ___scripts/test_*.py
 # 번들 파일은 빌드시 생성됨
 web_app/problems_bundle.json
 
-# web_app/data/ 내의 특정 폴더만 추적
+# web_app/data/ 내의 특정 폴더/파일만 추적
 web_app/data/*
 !web_app/data/problems/
 !web_app/data/problems/**
 !web_app/data/svg/
 !web_app/data/svg/**
+!web_app/data/problems_metadata.json
 
 # Flask 앱 관련 (로컬 개발용)
 web_app/app.py
