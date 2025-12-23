@@ -2,9 +2,59 @@
 
 답 73 \\
 
+
+\begin{tikzpicture}[scale=0.8]
+
+% 점 정의
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(-8.54,0){A}
+\tkzDefPoint(8.54,0){B}
+\tkzDefPoint(1,0){E}
+\tkzDefPoint(1,6){M}          % CD-원의 중심
+\tkzDefPoint(-4.92,6.99){C}
+\tkzDefPoint(6.92,5.01){D}
+
+% 반원 (AB가 지름)
+\tkzDrawSemiCircle[thick](O,B)
+
+% 지름 AB
+\tkzDrawSegment[thick](A,B)
+
+% CD를 지름으로 하는 원
+\tkzDrawCircle[thick, color=blue!60](M,C)
+
+% 선분 CD
+\tkzDrawSegment[thick, color=red!70](C,D)
+
+% 접점 E에서 수직선 (접선의 법선)
+\tkzDrawSegment[dashed, color=gray](E,M)
+
+% 선분 OE 표시
+\tkzDrawSegment[thick, color=green!50!black](O,E)
+
+% 점 표시
+\tkzDrawPoints[size=4](A,B,O,E,M,C,D)
+
+% 라벨
+\tkzLabelPoint[below left](A){$A$}
+\tkzLabelPoint[below right](B){$B$}
+\tkzLabelPoint[below](O){$O$}
+\tkzLabelPoint[below](E){$E$}
+\tkzLabelPoint[right](M){$M$}
+\tkzLabelPoint[above left](C){$C$}
+\tkzLabelPoint[above right](D){$D$}
+
+% 길이 표시
+\tkzLabelSegment[below, pos=0.5](O,E){1}
+\tkzLabelSegment[above, pos=0.5, color=red!70](C,D){12}
+
+% 직각 표시 (접점에서)
+\tkzMarkRightAngle[size=0.4](M,E,B)
+
+\end{tikzpicture}
+
+
 접점에서 접선에 수직인 직선은 원의 중심을 지난다.\\
-즉, $E$ 에서 $AB$ 에 수직인 직선은 $CD$ 의 중점을 지난다. \\
+즉, $E$ 에서 $AB$ 에 수직인 직선은 $CD$ 의 중점(원의 중심, 현의 중점)을 지난다. \\
 $\overline{CD}$ 의 중점을 $M$ 이라 하자. $\overline{OM} = \sqrt{6^2 + 1}$ 을 얻는다.\\
-
-
 선분 $OM$ 은 원 $O$ 의 현 $CD$ 에 수직이므로 $\overline{OC} = \sqrt{37 + 6^2}$ 을 얻는다. \\

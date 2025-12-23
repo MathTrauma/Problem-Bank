@@ -3,5 +3,32 @@
 % Original file: Problem Sets/contents/quiz05.tex
 
 
-    \fbox{ 38회(2024) KMO 중등부 1차 1번 }\\
-    답 : 72 \\
+\fbox{ 38회(2024) KMO 중등부 1차 1번 }\\
+답 : 72 \\
+
+\begin{tikzpicture}[scale=1]
+    % 이등변삼각형 ABC (AB=AC=5, BC=6)
+    \tkzDefPoint(-3,0){B}
+    \tkzDefPoint(3,0){C}
+    \tkzDefPoint(0,4){A}
+
+    % D는 AC 위의 점 (AD=1, AC=5이므로 비율 1/5)
+    \tkzDefBarycentricPoint(A=4,C=1) \tkzGetPoint{D}
+
+    % E는 AC 위의 점 (EC=2, AC=5이므로 비율 3/5 from A)
+    \tkzDefBarycentricPoint(A=2,C=3) \tkzGetPoint{E}
+
+    % 삼각형 그리기
+    \tkzDrawPolygon(A,B,C)
+
+    % 삼각형 BDE 그리기
+    \tkzDrawPolygon[fill=blue!10](B,D,E)
+
+    % 점 표시
+    \tkzDrawPoints(A,B,C,D,E)
+    \tkzLabelPoint[above](A){$A$}
+    \tkzLabelPoint[below left](B){$B$}
+    \tkzLabelPoint[below right](C){$C$}
+    \tkzLabelPoint[right](D){$D$}
+    \tkzLabelPoint[right](E){$E$}
+\end{tikzpicture}

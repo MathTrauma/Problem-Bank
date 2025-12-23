@@ -3,5 +3,52 @@
 % Original file: Problem Sets/contents/quiz04.tex
 
 
-    \fbox{ 36회(2022) KMO 중등부 1차 8번 } 36회 문제 배열은 난이도 순이 아니었다. 6점\\
-    답 : 39 \\
+\fbox{ 36회(2022) KMO 중등부 1차 8번 }\\ 
+36회 문제 배열은 난이도 순이 아니었다. 6점\\
+답 : 39 \\
+
+\begin{tikzpicture}[scale=0.2]
+    % 삼각형 ABC (AB=27, BC=30)
+    \tkzDefPoint(0,0){B}
+    \tkzDefPoint(30,0){C}
+    % A는 B를 중심으로 반지름 27인 원과 C를 중심으로 반지름 39인 원의 교점
+    \tkzDefCircle[R](B,27) \tkzGetPoint{b}
+    \tkzDefCircle[R](C,39) \tkzGetPoint{c}
+    \tkzInterCC(B,b)(C,c) \tkzGetPoints{A}{A'}
+
+    % M은 BC의 중점
+    \tkzDefMidPoint(B,C) \tkzGetPoint{M}
+
+    % BC를 지름으로 하는 원
+    \tkzDrawCircle[color=blue](M,B)
+
+    % AM과 원의 교점 D (y좌표가 양수인 점 선택)
+    \tkzInterLC(A,M)(M,B) \tkzGetPoints{D1}{D2}
+    \tkzGetPointCoord(D1){Da}
+    \tkzGetPointCoord(D2){Db}
+    \ifdim \Day pt>0pt
+        \tkzDefPoint(\Dax,\Day){D}
+    \else
+        \tkzDefPoint(\Dbx,\Dby){D}
+    \fi
+
+    % E: 직선 CD와 AB의 교점
+    \tkzInterLL(C,D)(A,B) \tkzGetPoint{E}
+
+    % F: 직선 BD와 AC의 교점
+    \tkzInterLL(B,D)(A,C) \tkzGetPoint{F}
+
+    % 삼각형과 선분 그리기
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawSegments(A,M C,E B,F E,F)
+
+    % 점 표시
+    \tkzDrawPoints(A,B,C,D,E,F,M)
+    \tkzLabelPoint[above](A){$A$}
+    \tkzLabelPoint[below left](B){$B$}
+    \tkzLabelPoint[below right](C){$C$}
+    \tkzLabelPoint[below](D){$D$}
+    \tkzLabelPoint[left](E){$E$}
+    \tkzLabelPoint[right](F){$F$}
+    \tkzLabelPoint[below](M){$M$}
+\end{tikzpicture}

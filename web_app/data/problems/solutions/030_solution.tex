@@ -3,5 +3,49 @@
 % Original file: Problem Sets/contents/quiz05.tex
 
 
-    \fbox{ 29회(2015) KMO 중등부 1차 11번 }\\
-    답 : 35 \\
+\fbox{ 29회(2015) KMO 중등부 1차 11번 }\\
+답 : 35 \\
+
+\begin{tikzpicture}[scale=0.25]
+    % 외접원 중심과 반지름 10
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint(10,0){P}
+
+    % 삼각형 ABC 정의 (외접원 위의 점들, AB=12, AC:BC=7:5)
+    \tkzDefPoint(160:10){A}
+    \tkzDefPoint(230:10){B}
+    \tkzDefPoint(20:10){C}
+
+    % 외접원 그리기
+    \tkzDrawCircle[color=blue](O,P)
+
+    % D: 각 C의 이등분선이 AB와 만나는 점
+    \tkzDefLine[bisector](A,C,B) \tkzGetPoint{c'}
+    \tkzInterLL(C,c')(A,B) \tkzGetPoint{D}
+
+    % D에서 AB에 수직인 직선 위에 원 O'의 중심
+    \tkzDefLine[orthogonal=through D](A,B) \tkzGetPoint{d'}
+
+    % 원 O'의 중심 (외접원 내부, AB 위쪽에 위치)
+    \tkzDefPointBy[homothety=center D ratio 1.5](d') \tkzGetPoint{O'}
+
+    % 원 O'의 반지름 (D에서 AB까지의 거리 = 0이므로 원이 AB에 접함)
+    % 외접원에 내접하는 원의 중심은 O와 O'를 잇는 직선 위
+    \tkzInterLC(D,d')(O,P) \tkzGetPoints{T1}{T2}
+    \tkzDefMidPoint(D,T1) \tkzGetPoint{O'}
+
+    % 원 O' 그리기
+    \tkzDrawCircle[color=red](O',D)
+
+    % 삼각형과 선분 그리기
+    \tkzDrawPolygon(A,B,C)
+    \tkzDrawSegments(C,D)
+
+    % 점 표시
+    \tkzDrawPoints(A,B,C,D,O')
+    \tkzLabelPoint[above left](A){$A$}
+    \tkzLabelPoint[below left](B){$B$}
+    \tkzLabelPoint[right](C){$C$}
+    \tkzLabelPoint[below](D){$D$}
+    \tkzLabelPoint[above](O'){$O$}
+\end{tikzpicture}
