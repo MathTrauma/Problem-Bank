@@ -183,8 +183,13 @@ function renderSearchResults(container, problems) {
 }
 
 // 문제 상세 로드
-function loadProblem(problemId) {
-    const problem = App.problemsData[problemId];
+async function loadProblem(problemId) {
+    // 로딩 표시
+    const viewTab = document.getElementById('tab-view');
+    viewTab.innerHTML = '<div class="empty-state"><p>로딩 중...</p></div>';
+
+    // R2 CDN에서 문제 상세 정보 로드
+    const problem = await loadProblemDetail(problemId);
     if (!problem) {
         showToast('문제를 찾을 수 없습니다.');
         return;
@@ -194,7 +199,6 @@ function loadProblem(problemId) {
     document.getElementById('currentProblemTitle').textContent = `문제 ${problemId}`;
 
     // 문제 내용 표시
-    const viewTab = document.getElementById('tab-view');
     if (problem.content) {
         let contentHtml = convertLatexToHtml(problem.content);
 

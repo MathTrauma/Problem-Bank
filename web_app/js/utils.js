@@ -18,7 +18,7 @@ function extractSvgButtons(solution) {
 
     let buttonsHtml = '';
     svgMarkers.forEach((filename, index) => {
-        const svgPath = `data/svg/${filename}`;
+        const svgPath = `https://r2-cdn.painfultrauma.workers.dev/svg/${filename}`;
         const label = svgMarkers.length > 1 ? `그림 ${index + 1} 보기` : '그림 보기';
         buttonsHtml += `
             <div class="figure-toggle" data-svg="${svgPath}">
@@ -111,7 +111,7 @@ function convertLatexToHtml(latex) {
 
     // 7. SVG 마커를 폴드아웃 버튼으로 변환
     html = html.replace(/%\s*\[SVG:\s*([^\]]+)\]/g, (match, filename) => {
-        const svgPath = `data/svg/${filename.trim()}`;
+        const svgPath = `https://r2-cdn.painfultrauma.workers.dev/svg/${filename.trim()}`;
         return `
             <div class="figure-toggle" data-svg="${svgPath}">
                 <div class="figure-toggle-icon">

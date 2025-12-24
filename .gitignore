@@ -130,6 +130,10 @@ ___scripts/test_*.py
 # 번들 파일은 빌드시 생성됨
 web_app/problems_bundle.json
 
+# 증분 빌드 캐시
+.build_cache.json
+.upload_cache.json
+
 # web_app/data/ 내의 특정 폴더/파일만 추적
 web_app/data/*
 !web_app/data/problems/

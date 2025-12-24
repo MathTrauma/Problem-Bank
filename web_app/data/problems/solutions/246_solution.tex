@@ -1,5 +1,37 @@
 
 
-% [SVG: 246_fig1.svg]
+\begin{tikzpicture}[scale=0.15]
+
+    \tkzDefPoint(0,0){O}        \tkzLabelPoint[below](O){$O$}       
+    \tkzDefPoint({-9*sqrt(8)},0){A}        \tkzLabelPoint[left](A){$A$}       
+    \tkzDefPoint({9*sqrt(8)},0){B}        \tkzLabelPoint[right](B){$B$}  
+
+    \tkzDrawCircle(O,A)
+    \tkzDrawSegment(A,B)
+
+    \tkzDefPoint({7*sqrt(8)},0){P}         \tkzLabelPoint[below left](P){$P$}    
+    \tkzDefLine[orthogonal=through P](A,B) \tkzGetPoint{p2}
+
+    \tkzInterLC(P,p2)(O,B)    \tkzGetPoints{Q_}{Q}
+    \tkzDrawPoint(Q)        \tkzLabelPoint[right](Q){$Q$} 
+    \tkzDrawPoint(Q_)        \tkzLabelPoint[right](Q_){$Q'$} 
+
+    \tkzDefLine[orthogonal=through O](A,Q)  \tkzGetPoint{tmp}
+    %\tkzDrawLine[blue](O, tmp)
+
+    \tkzInterLC(O,tmp)(O,B)     \tkzGetPoints{X}{M}
+    \tkzDrawPoint(M)        \tkzLabelPoint[above left](M){$M$} 
+
+    \tkzDefLine[orthogonal=through M](O,M)  \tkzGetPoint{tmp}
+    %\tkzDrawLine(M,tmp)   
+    \tkzInterLL(M,tmp)(P,Q)     \tkzGetPoint{R}   
+    \tkzDrawPoint(R)        \tkzLabelPoint[right](R){$R$} 
+    \tkzDrawSegment(M,R)
+
+    \tkzInterLL(A,M)(P,Q)       \tkzGetPoint{X}
+    \tkzDrawSegments(Q_,X A,Q Q,B)
+    \tkzDrawSegment[red](A,X)
+
+\end{tikzpicture}
 
 답 640\\

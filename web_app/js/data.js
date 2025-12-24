@@ -2,15 +2,18 @@
  * data.js - 데이터 로드 및 분류
  */
 
-// 문제 데이터 로드 (번들 JSON 파일)
+// Cloudflare Workers CDN URL
+const CDN_URL = 'https://r2-cdn.painfultrauma.workers.dev';
+
+// 문제 메타데이터 로드 (R2 CDN)
 async function loadProblems() {
     try {
-        const response = await fetch('problems_bundle.json');
+        const response = await fetch(`${CDN_URL}/metadata.json`);
         const data = await response.json();
 
         App.allProblems = data.problems;
 
-        // 빠른 조회를 위한 맵 생성
+        // 빠른 조회를 위한 맵 생성 (메타데이터만)
         App.problemsData = {};
         App.allProblems.forEach(p => {
             App.problemsData[p.id] = p;
@@ -21,6 +24,31 @@ async function loadProblems() {
     } catch (error) {
         console.error('Failed to load problems:', error);
         showToast('문제 목록을 불러오는데 실패했습니다.');
+    }
+}
+
+// 개별 문제 상세 정보 로드 (필요할 때만)
+async function loadProblemDetail(problemId) {
+    try {
+        // 이미 로드된 경우 스킵
+        if (App.problemsData[problemId]?.content !== undefined) {
+            return App.problemsData[problemId];
+        }
+
+        const response = await fetch(`${CDN_URL}/problems/${problemId}.json`);
+        const problemData = await response.json();
+
+        // 캐시에 저장
+        App.problemsData[problemId] = {
+            ...App.problemsData[problemId],
+            ...problemData
+        };
+
+        return App.problemsData[problemId];
+    } catch (error) {
+        console.error(`Failed to load problem ${problemId}:`, error);
+        showToast('문제를 불러오는데 실패했습니다.');
+        return null;
     }
 }
 
