@@ -184,3 +184,4 @@ package-lock.json
 # .github/workflows/deploy.yml - GitHub Actions workflow
 # DEPLOY_GUIDE.md - 배포 가이드
 # web_app/README_GITHUB.md - GitHub Pages 가이드
+.wrangler/

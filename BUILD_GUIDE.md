@@ -1,12 +1,15 @@
 # 빌드 및 배포 가이드
 
-## 새로운 빌드 시스템 (2025-12-24 업데이트)
+> **빠른 시작은 [WORKFLOW.md](WORKFLOW.md)를 참조하세요.**
+
+## 빌드 시스템 개요 (2025-12-25 업데이트)
 
 ### 핵심 원칙
 ✅ **원본 파일 보존** - `.tex` 파일은 절대 수정하지 않음
-✅ **증분 빌드** - 변경된 파일만 처리
-✅ **개별 JSON** - 문제별로 분리하여 저장
+✅ **증분 빌드** - 변경된 파일만 처리 (파일 해시 기반)
+✅ **개별 JSON** - 문제별로 분리하여 lazy loading 지원
 ✅ **R2 CDN** - Cloudflare Workers를 통한 전 세계 배포
+✅ **풀이 텍스트** - TikZ와 설명 텍스트 분리 추출
 
 ---
 
@@ -20,27 +23,42 @@ python3 ___scripts/build_incremental.py
 
 **기능**:
 - 원본 `.tex` 파일 읽기 (수정 안 함)
-- TikZ → SVG 변환
+- TikZ → SVG 변환 (solution 파일의 tikzpicture)
+- solution 텍스트 추출 (TikZ 제외, 답안 제외)
 - 개별 JSON 파일 생성 (`dist/problems/`)
-- 파일 해시 기반 증분 처리
+- 파일 해시 기반 증분 처리 (변경된 파일만)
 
 **출력**:
 ```
 dist/
 ├── problems/
-│   ├── 001.json
+│   ├── 001.json      # content, solution, solution_text, svg_files
 │   ├── 002.json
 │   └── ...
 ├── svg/
-│   ├── 001_fig1.svg
+│   ├── 001_fig1.svg  # TikZ → SVG 변환 결과
+│   ├── 018_fig1.svg
+│   ├── 018_fig2.svg  # 여러 그림 지원
 │   └── ...
-└── metadata.json
+└── metadata.json     # 전체 문제 목록 (메타데이터만)
 ```
 
 ### 2. R2 업로드
 
-#### 환경변수 설정 (필수)
+#### 방법 1: 자동 스크립트 (권장)
 
+```bash
+./upload_r2.sh
+```
+
+**기능**:
+- wrangler를 사용한 R2 업로드
+- 진행 상황 표시 (50개마다)
+- metadata.json, problems/*.json, svg/*.svg 모두 업로드
+
+#### 방법 2: Python 스크립트
+
+**환경변수 설정 (필수)**:
 ```bash
 export R2_ACCOUNT_ID="your_account_id"
 export R2_BUCKET_NAME="your_bucket_name"
@@ -48,8 +66,7 @@ export R2_ACCESS_KEY_ID="your_access_key"
 export R2_SECRET_ACCESS_KEY="your_secret_key"
 ```
 
-#### 업로드 실행
-
+**실행**:
 ```bash
 python3 ___scripts/upload_to_r2.py
 ```
@@ -57,6 +74,7 @@ python3 ___scripts/upload_to_r2.py
 **기능**:
 - 변경된 파일만 R2에 업로드
 - 파일 해시 기반 증분 업로드
+- (주의: SSL 에러 발생 가능 - wrangler 사용 권장)
 
 ### 3. Cloudflare Workers CDN
 
@@ -162,30 +180,36 @@ web_app/
 
 ## 파일 변경 시 워크플로우
 
-### 문제 추가/수정
+> **자세한 내용은 [WORKFLOW.md](WORKFLOW.md)를 참조하세요.**
+
+### 문제 추가/수정 (Quick Reference)
 
 1. **원본 파일 수정**:
    ```
-   web_app/data/problems/267.tex
-   web_app/data/problems/solutions/267_solution.tex
+   web_app/data/problems/267.tex              # 문제 본문
+   web_app/data/problems/solutions/267_solution.tex  # 풀이
    ```
 
-2. **메타데이터 업데이트** (필요시):
-   ```
-   web_app/data/problems_metadata.json
-   ```
-
-3. **빌드**:
+2. **빌드**:
    ```bash
    python3 ___scripts/build_incremental.py
    ```
 
-4. **R2 업로드**:
+3. **R2 업로드**:
    ```bash
-   python3 ___scripts/upload_to_r2.py
+   ./upload_r2.sh
    ```
 
-5. **완료!** CDN이 자동으로 새 파일 제공
+4. **Git 푸시**:
+   ```bash
+   git add .
+   git commit -m "feat: 새로운 문제 추가"
+   git push origin main
+   ```
+
+5. **완료!**
+   - CDN: 즉시 반영
+   - GitHub Pages: 1-2분 후 자동 배포
 
 ---
 
@@ -193,8 +217,10 @@ web_app/
 
 | 스크립트 | 기능 |
 |---------|------|
-| `build_incremental.py` | 증분 빌드 (TikZ → SVG, JSON 생성) |
-| `upload_to_r2.py` | R2 증분 업로드 |
+| `build_incremental.py` | 증분 빌드 (TikZ → SVG, solution_text 추출, JSON 생성) |
+| `upload_r2.sh` | wrangler를 통한 R2 일괄 업로드 (권장) |
+| `upload_to_r2.py` | Python boto3를 통한 R2 증분 업로드 |
+| `extract_problems.py` | 원본 .tex 파일에서 문제 추출 및 메타데이터 생성 |
 | `test_r2_upload.py` | R2 연결 테스트 |
 
 ---
@@ -231,6 +257,13 @@ cp file.tex.bak file.tex
 
 ## 참고 문서
 
+- **[WORKFLOW.md](WORKFLOW.md)** - 전체 워크플로우 및 할 일 목록
+- **[DEPLOY_GUIDE.md](DEPLOY_GUIDE.md)** - 배포 가이드
 - `troubles.xml` - 해결된 문제점
 - `cloudflare-workers/README.md` - Workers 배포 가이드
 - `.github/workflows/deploy.yml` - GitHub Actions 설정
+
+---
+
+**최종 업데이트**: 2025-12-25
+**문의**: mathtrauma.com
