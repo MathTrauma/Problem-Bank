@@ -462,3 +462,77 @@ mjx-container {
     width: 18px;
     height: 18px;
 }
+
+/* Floating Annotation Box */
+.annotation-container {
+    position: relative;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+
+.annotation-box {
+    position: relative;
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFFAF0 100%);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.annotation-box:hover {
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3),
+                0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.annotation-box::before {
+    content: '💡 드래그해서 이동 가능';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #FFD700;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    color: #333;
+    white-space: nowrap;
+}
+
+.annotation-content {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.8;
+    user-select: text;
+    cursor: text;
+    pointer-events: auto;
+}
+
+.annotation-content p {
+    margin: 10px 0;
+}
+
+.annotation-content strong {
+    color: #E65100;
+}
+
+/* Dragging state */
+.annotation-box.dragging {
+    opacity: 0.85;
+    cursor: grabbing !important;
+    z-index: 1000;
+    box-shadow: 0 12px 24px rgba(255, 215, 0, 0.4),
+                0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+}
+
+.annotation-box.dragging .annotation-content {
+    user-select: none;
+    cursor: grabbing !important;
+}

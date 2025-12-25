@@ -171,6 +171,46 @@ def load_problem_content(problem_id: str) -> str:
     return ""
 
 
+def extract_solution_text(solution_content: str) -> str:
+    """
+    solution에서 tikzpicture 환경을 제거하고 설명 텍스트만 추출
+
+    Returns:
+        설명 텍스트 (답안 제외)
+    """
+    if not solution_content:
+        return ""
+
+    # 주석 라인 제거
+    lines = solution_content.split('\n')
+    content_lines = [line for line in lines if not line.strip().startswith('%')]
+    text = '\n'.join(content_lines)
+
+    # tikzpicture 환경 제거
+    text = re.sub(
+        r'\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}',
+        '',
+        text,
+        flags=re.DOTALL
+    )
+
+    # center, figure 등 환경 제거
+    text = re.sub(r'\\begin\{center\}', '', text)
+    text = re.sub(r'\\end\{center\}', '', text)
+    text = re.sub(r'\\begin\{figure\}(\[.*?\])?', '', text)
+    text = re.sub(r'\\end\{figure\}', '', text)
+
+    # "답" 패턴 제거 (답안은 이미 metadata에 있음)
+    text = re.sub(r'답\s*[:：]\s*[^\\\n]+\\\\?', '', text)
+    text = re.sub(r'답\s+[^\\\n]+\\\\?', '', text)
+
+    # 연속된 공백/줄바꿈 정리
+    text = re.sub(r'\n\s*\n\s*\n+', '\n\n', text)
+    text = text.strip()
+
+    return text if text else ""
+
+
 def load_solution_content(problem_id: str) -> str:
     """풀이 내용 로드 (원본 유지)"""
     solution_file = SOLUTIONS_DIR / f"{problem_id}_solution.tex"
@@ -213,8 +253,11 @@ def build_problem_json(problem_id: str, metadata: dict, cache: Dict[str, str]) -
     # 풀이에서 tikzpicture 처리
     if solution:
         solution, svg_files = process_tikz_in_content(solution, problem_id)
+        # 풀이 설명 텍스트 추출
+        solution_text = extract_solution_text(solution)
     else:
         svg_files = []
+        solution_text = ""
 
     # 메타데이터 찾기
     problem_meta = next(
@@ -227,6 +270,7 @@ def build_problem_json(problem_id: str, metadata: dict, cache: Dict[str, str]) -
         **problem_meta,
         'content': content,
         'solution': solution,
+        'solution_text': solution_text,  # 설명 텍스트 추가
         'svg_files': svg_files
     }
 

@@ -150,6 +150,101 @@ function setupFigureToggles() {
     });
 }
 
+// Floating annotation box 생성
+function createAnnotationBox(solutionText) {
+    if (!solutionText || !solutionText.trim()) return '';
+
+    // LaTeX를 HTML로 변환
+    const annotationContent = convertLatexToHtml(solutionText);
+
+    return `
+        <div class="annotation-container">
+            <div class="annotation-box" draggable="true">
+                <div class="annotation-content">
+                    ${annotationContent}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Annotation box 드래그 기능 설정
+function setupAnnotationDragging() {
+    const boxes = document.querySelectorAll('.annotation-box');
+
+    boxes.forEach(box => {
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        box.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        // 터치 이벤트 (모바일 지원)
+        box.addEventListener('touchstart', dragStart);
+        document.addEventListener('touchmove', drag);
+        document.addEventListener('touchend', dragEnd);
+
+        function dragStart(e) {
+            // 텍스트 선택 중이면 드래그 시작 안 함
+            if (window.getSelection().toString().length > 0) {
+                return;
+            }
+
+            if (e.type === 'touchstart') {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === box || box.contains(e.target)) {
+                isDragging = true;
+                box.classList.add('dragging');
+            }
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+
+            e.preventDefault();
+
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+            } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+            }
+
+            xOffset = currentX;
+            yOffset = currentY;
+
+            setTranslate(currentX, currentY, box);
+        }
+
+        function dragEnd(e) {
+            if (!isDragging) return;
+
+            initialX = currentX;
+            initialY = currentY;
+
+            isDragging = false;
+            box.classList.remove('dragging');
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        }
+    });
+}
+
 // 토스트 알림
 function showToast(message) {
     const toast = document.getElementById('toast');

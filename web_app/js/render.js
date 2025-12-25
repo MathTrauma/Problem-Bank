@@ -210,6 +210,12 @@ async function loadProblem(problemId) {
             }
         }
 
+        // solution_text가 있으면 floating annotation box 추가
+        if (problem.solution_text && problem.solution_text.trim()) {
+            const annotationHtml = createAnnotationBox(problem.solution_text);
+            contentHtml += annotationHtml;
+        }
+
         viewTab.innerHTML = `<div class="problem-content">${contentHtml}</div>`;
     } else {
         viewTab.innerHTML = '<div class="empty-state"><p>문제 내용이 없습니다.</p></div>';
@@ -271,4 +277,7 @@ async function loadProblem(problemId) {
 
     // 폴드아웃 버튼 이벤트 설정
     setupFigureToggles();
+
+    // Annotation box 드래그 기능 설정
+    setupAnnotationDragging();
 }
