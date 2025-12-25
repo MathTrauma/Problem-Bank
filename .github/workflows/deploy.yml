@@ -30,40 +30,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-
-    - name: Build data bundle
-      run: |
-        cd web_app
-        echo "Building problems bundle..."
-        python3 build_data.py
-        echo "✅ Bundle created successfully"
-        ls -lh problems_bundle.json
-
     - name: Prepare deployment files
       run: |
         echo "Preparing files for deployment..."
-        mkdir -p _site/css _site/js _site/data/svg
+        echo "Note: Data is served from Cloudflare R2 CDN"
+        mkdir -p _site/css _site/js
 
-        # HTML 및 번들
+        # HTML
         cp web_app/index.html _site/
-        cp web_app/problems_bundle.json _site/
 
         # CSS 및 JS
         cp -r web_app/css/* _site/css/
         cp -r web_app/js/* _site/js/
 
-        # SVG 파일들
-        if [ -d "web_app/data/svg" ] && [ "$(ls -A web_app/data/svg 2>/dev/null)" ]; then
-          cp -r web_app/data/svg/* _site/data/svg/
-        fi
-
         echo "✅ Deployment files ready"
         echo "Files to deploy:"
-        find _site -type f | head -20
+        find _site -type f
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3

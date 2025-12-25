@@ -7,11 +7,13 @@ dist/ 디렉토리의 파일들을 Cloudflare R2에 업로드
 변경된 파일만 업로드 (파일 해시 기반)
 
 환경변수 필요:
+    export R2_ACCOUNT_ID="your_account_id"
+    export R2_BUCKET_NAME="your_bucket_name"
     export R2_ACCESS_KEY_ID="your_access_key"
     export R2_SECRET_ACCESS_KEY="your_secret_key"
 
 사용법:
-    python3 upload_to_r2.py              # 전체 업로드
+    python3 upload_to_r2.py              # 증분 업로드
     python3 upload_to_r2.py --dry-run    # 시뮬레이션 (업로드 안 함)
     python3 upload_to_r2.py --force      # 강제 전체 업로드
 """
@@ -20,13 +22,24 @@ import argparse
 import hashlib
 import json
 import os
+import sys
 import boto3
 from pathlib import Path
 from botocore.exceptions import ClientError
 
-# R2 설정
-ACCOUNT_ID = "c1e4805bf381532b26cc9cb26cfe80bd"
-BUCKET_NAME = "mathtrauma"
+# R2 설정 (환경변수에서 읽기)
+ACCOUNT_ID = os.getenv('R2_ACCOUNT_ID')
+BUCKET_NAME = os.getenv('R2_BUCKET_NAME')
+
+if not ACCOUNT_ID or not BUCKET_NAME:
+    print("❌ R2 설정이 누락되었습니다.")
+    print("\n다음 환경변수를 설정하세요:")
+    print("  export R2_ACCOUNT_ID='your_account_id'")
+    print("  export R2_BUCKET_NAME='your_bucket_name'")
+    print("  export R2_ACCESS_KEY_ID='your_access_key'")
+    print("  export R2_SECRET_ACCESS_KEY='your_secret_key'")
+    sys.exit(1)
+
 ENDPOINT_URL = f"https://{ACCOUNT_ID}.r2.cloudflarestorage.com"
 
 # 경로 설정
