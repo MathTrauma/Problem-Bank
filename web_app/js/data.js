@@ -19,6 +19,9 @@ async function loadProblems() {
             App.problemsData[p.id] = p;
         });
 
+        // 미분류 번호 매핑 생성
+        App.unclassifiedNumberMap = buildUnclassifiedNumberMap(App.allProblems);
+
         updateStats(data);
         renderProblemList(App.allProblems);
     } catch (error) {

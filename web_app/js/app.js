@@ -9,7 +9,8 @@ const App = {
     problemsData: {},
     problemHierarchy: null,
     expandedFolders: new Set(),
-    currentFilteredProblems: null
+    currentFilteredProblems: null,
+    unclassifiedNumberMap: null
 };
 
 // 초기화
@@ -85,7 +86,10 @@ function setupSearch() {
 
         // Filter problems
         const filtered = App.allProblems.filter(p => {
+            const displayNumber = getProblemDisplayNumber(p, App.unclassifiedNumberMap);
+
             return p.id.includes(query) ||
+                   displayNumber.toLowerCase().includes(query) ||
                    (p.source && p.source.toLowerCase().includes(query)) ||
                    (p.source_file && p.source_file.toLowerCase().includes(query)) ||
                    (p.tags && p.tags.some(tag => tag.toLowerCase().includes(query)));

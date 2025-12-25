@@ -125,9 +125,12 @@ function renderProblemItem(container, problem, indentLevel) {
     if (problem.solution) badges += '<span class="badge badge-solution">풀이</span>';
     if (problem.source) badges += '<span class="badge badge-source">출처</span>';
 
+    const displayNumber = getProblemDisplayNumber(problem, App.unclassifiedNumberMap);
+    const preview = getProblemPreview(problem, App.unclassifiedNumberMap);
+
     item.innerHTML = `
-        <div class="problem-id">문제 ${problem.id}</div>
-        <div class="problem-preview">${problem.source || problem.source_file || '원본 파일 없음'}</div>
+        <div class="problem-id">${displayNumber}</div>
+        <div class="problem-preview">${preview}</div>
         <div class="problem-badges">${badges}</div>
     `;
 
@@ -196,7 +199,8 @@ async function loadProblem(problemId) {
     }
 
     // 제목 업데이트
-    document.getElementById('currentProblemTitle').textContent = `문제 ${problemId}`;
+    const displayTitle = getProblemDisplayNumber(problem, App.unclassifiedNumberMap);
+    document.getElementById('currentProblemTitle').textContent = displayTitle;
 
     // 문제 내용 표시
     if (problem.content) {
@@ -220,55 +224,6 @@ async function loadProblem(problemId) {
     } else {
         viewTab.innerHTML = '<div class="empty-state"><p>문제 내용이 없습니다.</p></div>';
     }
-
-    // 메타데이터 표시
-    const metadataTab = document.getElementById('tab-metadata');
-    metadataTab.innerHTML = `
-        <div class="metadata-view">
-            <div class="metadata-item">
-                <strong>문제 ID</strong>
-                ${problem.id}
-            </div>
-            ${problem.source ? `
-            <div class="metadata-item">
-                <strong>출처</strong>
-                ${problem.source}
-            </div>` : ''}
-            ${problem.answer ? `
-            <div class="metadata-item">
-                <strong>답안</strong>
-                ${problem.answer}
-            </div>` : ''}
-            ${problem.category ? `
-            <div class="metadata-item">
-                <strong>카테고리</strong>
-                ${problem.category}
-            </div>` : ''}
-            ${problem.difficulty ? `
-            <div class="metadata-item">
-                <strong>난이도</strong>
-                ${problem.difficulty}/5
-            </div>` : ''}
-            ${problem.tags && problem.tags.length > 0 ? `
-            <div class="metadata-item">
-                <strong>태그</strong>
-                ${problem.tags.join(', ')}
-            </div>` : ''}
-            ${problem.note ? `
-            <div class="metadata-item">
-                <strong>메모</strong>
-                ${problem.note}
-            </div>` : ''}
-            <div class="metadata-item">
-                <strong>원본 파일</strong>
-                ${problem.source_file}
-            </div>
-            <div class="metadata-item">
-                <strong>TikZ 사용</strong>
-                ${problem.has_tikz ? '예' : '아니오'}
-            </div>
-        </div>
-    `;
 
     // MathJax 렌더링
     if (window.MathJax) {

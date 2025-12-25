@@ -310,9 +310,19 @@ def build_all():
     # 각 문제 처리
     built_problems = []
     skipped_count = 0
+    missing_file_ids = []
 
     for problem in metadata['problems']:
         problem_id = problem['id']
+
+        # 파일 존재 확인
+        problem_file = PROBLEMS_DIR / f"{problem_id}.tex"
+        if not problem_file.exists():
+            missing_file_ids.append(problem_id)
+            print(f"\n📄 문제 {problem_id} 처리 중...")
+            print(f"  ⚠️  파일 없음, 제외")
+            continue
+
         result = build_problem_json(problem_id, metadata, cache)
 
         if result:
@@ -320,12 +330,17 @@ def build_all():
         else:
             skipped_count += 1
 
-    # 전체 메타데이터 저장
+    # 전체 메타데이터 저장 (파일이 존재하는 문제만 포함)
+    filtered_problems = [
+        p for p in metadata['problems']
+        if p['id'] not in missing_file_ids
+    ]
+
     dist_metadata = {
-        'total_problems': metadata['total_problems'],
+        'total_problems': len(filtered_problems),
         'problems': [
             {k: v for k, v in p.items() if k != 'content' and k != 'solution'}
-            for p in metadata['problems']
+            for p in filtered_problems
         ]
     }
 
@@ -340,7 +355,9 @@ def build_all():
     print(f"✅ 빌드 완료!")
     print(f"  처리: {len(built_problems)}개")
     print(f"  스킵: {skipped_count}개 (변경 없음)")
-    print(f"  총 문제: {metadata['total_problems']}개")
+    if missing_file_ids:
+        print(f"  제외: {len(missing_file_ids)}개 (파일 없음: {', '.join(missing_file_ids)})")
+    print(f"  총 문제: {len(filtered_problems)}개")
     print(f"\n출력 디렉토리:")
     print(f"  {DIST_PROBLEMS_DIR}/")
     print(f"  {DIST_SVG_DIR}/")
