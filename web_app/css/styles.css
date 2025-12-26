@@ -536,3 +536,161 @@ mjx-container {
     user-select: none;
     cursor: grabbing !important;
 }
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 3000;
+    width: 50px;
+    height: 50px;
+    background: #2196F3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background: #1976D2;
+    transform: scale(1.05);
+}
+
+.mobile-menu-toggle:active {
+    transform: scale(0.95);
+}
+
+.mobile-menu-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+/* Mobile overlay */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.show {
+    opacity: 1;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Show mobile menu toggle button */
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hide sidebar by default on mobile */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -350px;
+        height: 100vh;
+        z-index: 2600;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.mobile-open {
+        left: 0;
+    }
+
+    /* Main content takes full width on mobile */
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Adjust floating nav for mobile */
+    .floating-nav {
+        top: 85px;
+        right: 10px;
+    }
+
+    .floating-nav a {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .floating-nav svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Adjust content area padding */
+    .content-area {
+        padding: 15px;
+    }
+
+    /* Reduce header padding */
+    .main-header {
+        padding: 15px;
+    }
+
+    .main-header h2 {
+        font-size: 16px;
+    }
+
+    /* Show mobile overlay when sidebar is open */
+    .mobile-overlay {
+        display: block;
+    }
+
+    /* Adjust problem content font size for mobile */
+    .problem-content {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    /* Make annotation boxes more mobile-friendly */
+    .annotation-box {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .annotation-box::before {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+
+    .annotation-content {
+        font-size: 14px;
+    }
+
+    /* Adjust figure content for mobile */
+    .figure-content {
+        padding: 15px;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .content-area {
+        padding: 10px;
+    }
+
+    .main-header {
+        padding: 10px;
+    }
+
+    .floating-nav {
+        top: 10px;
+        right: 10px;
+    }
+}

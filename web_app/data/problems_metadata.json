@@ -1,5 +1,5 @@
 {
-  "total_problems": 265,
+  "total_problems": 271,
   "problems": [
     {
       "id": "001",
@@ -2915,6 +2915,84 @@
       "category": "",
       "answer": "",
       "note": ""
+    },
+    {
+      "id": "296",
+      "source": "",
+      "source_file": "problems/296.tex",
+      "has_tikz": false,
+      "tags": [],
+      "difficulty": null,
+      "category": "",
+      "answer": "",
+      "note": "",
+      "solution_file": "problems/solutions/296_solution.tex",
+      "figure_file": "svg/296_fig1.png"
+    },
+    {
+      "id": "297",
+      "source": "",
+      "source_file": "problems/297.tex",
+      "has_tikz": false,
+      "tags": [],
+      "difficulty": null,
+      "category": "",
+      "answer": "",
+      "note": "",
+      "solution_file": "problems/solutions/297_solution.tex",
+      "figure_file": "svg/297_fig1.png"
+    },
+    {
+      "id": "298",
+      "source": "",
+      "source_file": "problems/298.tex",
+      "has_tikz": false,
+      "tags": [],
+      "difficulty": null,
+      "category": "",
+      "answer": "",
+      "note": "",
+      "solution_file": "problems/solutions/298_solution.tex",
+      "figure_file": "svg/298_fig1.png"
+    },
+    {
+      "id": "299",
+      "source": "",
+      "source_file": "problems/299.tex",
+      "has_tikz": false,
+      "tags": [],
+      "difficulty": null,
+      "category": "",
+      "answer": "",
+      "note": "",
+      "solution_file": "problems/solutions/299_solution.tex",
+      "figure_file": "svg/299_fig1.png"
+    },
+    {
+      "id": "300",
+      "source": "",
+      "source_file": "problems/300.tex",
+      "has_tikz": false,
+      "tags": [],
+      "difficulty": null,
+      "category": "",
+      "answer": "",
+      "note": "",
+      "solution_file": "problems/solutions/300_solution.tex",
+      "figure_file": "svg/300_fig1.png"
+    },
+    {
+      "id": "301",
+      "source": "",
+      "source_file": "problems/301.tex",
+      "has_tikz": false,
+      "tags": [],
+      "difficulty": null,
+      "category": "",
+      "answer": "",
+      "note": "",
+      "solution_file": "problems/solutions/301_solution.tex",
+      "figure_file": "svg/301_fig1.png"
     }
   ]
 }
