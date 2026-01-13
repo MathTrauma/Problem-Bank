@@ -17,9 +17,9 @@ from datetime import datetime
 class ProblemManager:
     def __init__(self, base_dir: Path):
         self.base_dir = base_dir
-        self.problems_dir = base_dir / 'problems'
+        self.problems_dir = base_dir / 'web_app' / 'data' / 'problems'
         self.solutions_dir = self.problems_dir / 'solutions'
-        self.metadata_file = base_dir / '___scripts' / 'problems_metadata.json'
+        self.metadata_file = base_dir / 'web_app' / 'data' / 'problems_metadata.json'
 
         # 디렉토리 생성
         self.problems_dir.mkdir(exist_ok=True)

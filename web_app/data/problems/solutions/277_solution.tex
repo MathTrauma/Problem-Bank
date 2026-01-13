@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=.3]
+
+% 점 정의
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(12,0){A}
+\tkzDefPoint(150:12){B}
+\tkzDefPoint(-150:12){C}
+\tkzDefPoint(-90:12){D}
+
+\tkzDrawCircle(O,A)
+
+\tkzDrawPoint(O)    \tkzLabelPoint[above](O){$O$}
+\tkzDrawPoint(A)    \tkzLabelPoint[right](A){$A$}
+\tkzDrawPoint(B)    \tkzLabelPoint[above left](B){$B$}
+\tkzDrawPoint(C)    \tkzLabelPoint[below left](C){$C$}
+\tkzDrawPoint(D)    \tkzLabelPoint[below](D){$D$}
+
+\tkzDrawSegments(A,B B,C C,D D,A B,D) 
+\tkzDrawSegment[dashed](A,C)
+
+\tkzDefPointBy[projection=onto B--D](A)  \tkzGetPoint{E}
+\tkzDrawSegment(A,E)
+\tkzMarkRightAngle[size=1.2](A,E,D)
+
+
+\end{tikzpicture}

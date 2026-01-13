@@ -1,0 +1,72 @@
+
+\begin{tikzpicture}[scale=1.2]
+
+% 점 정의
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(-128:3){B}
+\tkzDefPoint(-52:3){C}
+\tkzDefPoint(68:3){A}
+
+\tkzDrawPoint(O)    \tkzLabelPoint[below](O){$O$}
+\tkzDrawPoint(A)    \tkzLabelPoint[above](A){$A$}
+\tkzDrawPoint(B)    \tkzLabelPoint[below left](B){$B$}
+\tkzDrawPoint(C)    \tkzLabelPoint[below right](C){$C$}
+\tkzDrawCircle[dashed](O,A)
+
+\tkzDrawSegments(A,B B,C C,A)
+
+\tkzDefCircle[circum](B,C,O) \tkzGetPoint{X}
+\tkzDrawCircle(X,O)
+
+\tkzInterLC(A,B)(X,O) \tkzGetPoints{D}{t}
+\tkzDrawPoint(D)    \tkzLabelPoint[left](D){$D$}
+
+\tkzInterLC(A,C)(X,O) \tkzGetPoints{t}{E}
+\tkzDrawPoint(E)    \tkzLabelPoint[right](E){$E$}
+
+\tkzInterLL(D,O)(A,C) \tkzGetPoint{P}
+\tkzDrawPoint(P)    \tkzLabelPoint[right](P){$P$}
+
+\tkzInterLL(E,O)(A,B) \tkzGetPoint{Q}
+\tkzDrawPoint(Q)    \tkzLabelPoint[above left ](Q){$Q$}
+\tkzDrawSegment(E,Q)
+\tkzDrawSegment[dashed](O,B)
+
+% 반원 (AB가 지름)
+% \tkzDrawSemiCircle[thick](O,B)
+
+% % 지름 AB
+% \tkzDrawSegment[thick](A,B)
+
+% % CD를 지름으로 하는 원
+% \tkzDrawCircle[thick, color=blue!60](M,C)
+
+% % 선분 CD
+% \tkzDrawSegment[thick, color=red!70](C,D)
+
+% % 접점 E에서 수직선 (접선의 법선)
+% \tkzDrawSegment[dashed, color=gray](E,M)
+
+% % 선분 OE 표시
+% \tkzDrawSegment[thick, color=green!50!black](O,E)
+
+% % 점 표시
+% \tkzDrawPoints[size=4](A,B,O,E,M,C,D)
+
+% % 라벨
+% \tkzLabelPoint[below left](A){$A$}
+% \tkzLabelPoint[below right](B){$B$}
+% \tkzLabelPoint[below](O){$O$}
+% \tkzLabelPoint[below](E){$E$}
+% \tkzLabelPoint[right](M){$M$}
+% \tkzLabelPoint[above left](C){$C$}
+% \tkzLabelPoint[above right](D){$D$}
+
+% % 길이 표시
+% \tkzLabelSegment[below, pos=0.5](O,E){1}
+% \tkzLabelSegment[above, pos=0.5, color=red!70](C,D){12}
+
+% % 직각 표시 (접점에서)
+% \tkzMarkRightAngle[size=0.4](M,E,B)
+
+\end{tikzpicture}

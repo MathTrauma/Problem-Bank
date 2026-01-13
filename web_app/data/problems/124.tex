@@ -1,8 +1,38 @@
 % Problem ID: 124
 % Original file: Training_1/1_Angle/0_inscribed_angle.tex
 
-\numbering 원주 위에 고정된 두 점 $S,T$가 주어져 있다. 
+\numbering 원주 위에 고정된 두 점 $A,B$가 주어져 있다. 
 이 원주 위를 움직이는 점 $P$에 대하여 직선 $SP$를 생각하자. 
-선분 $PT$를 점 $P$를 중심으로 시계 반대 방향으로 회전하여 
-점 $T$가 직선 $SP$ 위에 처음으로 놓이는 점을 $Q$라고 하자. 
+점 $B$를 점 $P$를 중심으로 시계 반대 방향으로 회전하여 
+점 $B$가 직선 $AP$ 위에 처음으로 놓이는 점을 $Q$라고 하자. 
 점 $Q$의 자취를 구하여라. \\
+
+
+\begin{center}
+\begin{tikzpicture}[thick]
+    % \tkzInit[xmax=5,ymax=5]
+    % \tkzDrawX[>=latex]
+    % \tkzDrawY[>=latex]
+
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint(0,4){N}
+    \tkzDrawCircle(O,N)
+
+    \tkzDefPoint(-155:4){A}
+    \tkzDefPoint(-25:4){B}
+
+    \tkzDefPoint(53:4){P}
+
+    % \tkzDrawSegment[dim={$d$, 16pt, above=6pt}](O,P)
+    % \tkzDrawPoints(O,P)
+
+    \tkzDefPointBy[reflection=over N--P](B)     \tkzGetPoint{Q}
+
+    \tkzDrawSegments(A,P B,P P,Q)
+
+
+    \tkzLabelPoints(A, B)
+
+
+\end{tikzpicture}
+\end{center}

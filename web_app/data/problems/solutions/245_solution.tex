@@ -1,12 +1,12 @@
 
-
 \begin{tikzpicture}[scale=0.5]
 
 % 1. 점 A, B, C
 \tkzDefPoint(-1,7){A}
-\tkzDefPoint(-10,0){B}
-\tkzDefPoint(10,0){C}
+\tkzDefPoint(-8,0){B}
+\tkzDefPoint(8,0){C}
 
+\tkzDrawPolygon(A,B,C)
 \tkzDrawPoints(A,B,C)
 \tkzLabelPoints(A,B,C)
 
@@ -22,8 +22,7 @@
 \tkzLabelPoint[above right](P){$P$}
 
 % 4. Q = PG ∩ BC, R = PG ∩ AB
-\tkzInterLL(P,G)(B,C)
-\tkzGetPoint{Q}
+\tkzInterLL(P,G)(B,C)   \tkzGetPoint{Q}
 \tkzDrawPoint(Q)
 \tkzLabelPoint[below](Q){$Q$}
 
@@ -33,6 +32,7 @@
 \tkzLabelPoint[left](R){$R$}
 
 % 5. 선분 AR, PR
+\tkzDrawSegment[dashed](B,R)
 \tkzDrawSegments(A,R P,R)
 
 \end{tikzpicture}
